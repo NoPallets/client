@@ -15,7 +15,7 @@ const onlineUsersSubscription = gql`
   }
 `;
 
-const OnlineUsersWrapper = () => {
+const OnlineUsersWrapper: React.FC = () => {
   const [onlineIndicator, setOnlineIndicator] = useState(0);
   const [values, setValues] = useState({});
   let onlineUsersList;
@@ -43,7 +43,7 @@ const OnlineUsersWrapper = () => {
   const updateLastSeen = () => {
     // Use the apollo client to run a mutation to update the last_seen value
     updateLastSeenMutation({
-      variables: { now: new Date().toISOString() }
+      variables: { now: new Date().toISOString() },
     });
   };
 
@@ -56,7 +56,7 @@ const OnlineUsersWrapper = () => {
     return <span>Error!</span>;
   }
   if (data) {
-    onlineUsersList = data.online_users.map(u => (
+    onlineUsersList = data.online_users.map((u) => (
       <OnlineUser key={u.id} user={u.user} />
     ));
   }

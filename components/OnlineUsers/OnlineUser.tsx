@@ -7,7 +7,7 @@ export interface OnlineUserProps {
   user: User;
 }
 
-const OnlineUser = ({ user }: OnlineUserProps) => {
+const OnlineUser: React.FC<OnlineUserProps> = ({ user }: OnlineUserProps) => {
   return (
     <div className="userInfo">
       <div className="userImg">

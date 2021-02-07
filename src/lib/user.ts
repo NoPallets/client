@@ -1,5 +1,20 @@
 import { useState, useEffect } from "react";
 
+interface User {
+  email: string;
+  email_verified: boolean;
+  name: string;
+  nickname: string;
+  picture: string;
+  sub: string;
+  update_at: Date;
+}
+declare global {
+  interface Window {
+    __user: User;
+  }
+}
+
 export async function fetchUser(cookie = "") {
   if (typeof window !== "undefined" && window.__user) {
     return window.__user;
@@ -28,7 +43,7 @@ export async function fetchUser(cookie = "") {
   return json;
 }
 
-export function useFetchUser({ required } = {}) {
+export function useFetchUser({ required }: any = {}) {
   const [loading, setLoading] = useState(
     () => !(typeof window !== "undefined" && window.__user)
   );

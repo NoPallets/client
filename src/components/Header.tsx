@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { withRouter } from "next/router";
 import { Navbar } from "react-bootstrap";
 import LogoutBtn from "./Auth/Logout";

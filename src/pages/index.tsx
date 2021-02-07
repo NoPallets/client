@@ -7,7 +7,7 @@ import { withApollo } from "../lib/withApollo";
 const IndexPage = () => {
   const { user, loading } = useFetchUser({ required: true });
   if (!loading && !user) {
-    return <Login />;
+    return <div className="test">Hello frrom index</div>;
   }
   return (
     <div>

@@ -1,7 +1,14 @@
-import "bootstrap/dist/css/bootstrap.min.css";
-import "../styles/App.css";
+import { ApolloProvider } from "@apollo/client";
+import { useApollo } from "../lib/apolloClient";
 
-// This default export is required in a new `pages/_app.js` file.
-export default function MyApp({ Component, pageProps }: any): any {
-  return <Component {...pageProps} />;
+export default function App({ Component, pageProps }) {
+  const apolloClient = useApollo(pageProps.initialApolloState);
+
+  return (
+    <ApolloProvider client={apolloClient}>
+      <div style={{ margin: "20px" }}>
+        <Component {...pageProps} />
+      </div>
+    </ApolloProvider>
+  );
 }

@@ -1,59 +1,36 @@
 {
-  "name": "nextjs-graphql-hasura",
+  "name": "nextjs-postgres-graphql",
   "version": "1.0.0",
+  "description": "Boiler plate to get started with nextjs and postgres backed GraphQL server",
+  "main": "index.js",
   "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "next",
     "build": "next build",
-    "start": "next start",
-    "lint": "eslint . --fix --ext=ts,tsx",
-    "lint:styles": "stylelint **.scss",
-    "format": "prettier --write ."
+    "start": "next start"
   },
-  "dependencies": {
-    "@apollo/react-hooks": "3.1.5",
-    "@apollo/react-ssr": "3.1.5",
-    "@auth0/nextjs-auth0": "0.13.0",
-    "apollo-cache-inmemory": "1.6.6",
-    "apollo-client": "2.6.10",
-    "apollo-link-context": "1.0.20",
-    "apollo-link-error": "1.1.13",
-    "apollo-link-http": "1.5.17",
-    "apollo-link-ws": "1.0.20",
-    "bootstrap": "3.4.1",
-    "dotenv": "8.2.0",
-    "graphql": "14.6.0",
-    "graphql-tag": "2.10.3",
-    "isomorphic-unfetch": "3.0.0",
-    "next": "9.4.1",
-    "nookies": "2.3.1",
-    "prop-types": "15.7.2",
-    "react": "16.13.1",
-    "react-bootstrap": "1.0.1",
-    "react-dom": "16.13.1",
-    "subscriptions-transport-ws": "0.9.16"
-  },
+  "keywords": [
+    "nextjs",
+    "graphql",
+    "postgres"
+  ],
   "license": "ISC",
+  "dependencies": {
+    "@apollo/client": "^3.0.0",
+    "apollo-cache": "^1.3.2",
+    "apollo-link": "^1.2.12",
+    "apollo-utilities": "^1.3.2",
+    "graphql": "^14.5.6",
+    "next": "^10.0.7",
+    "next-apollo": "^5.0.4",
+    "next-server": "^9.0.5",
+    "react": "^16.9.0",
+    "react-apollo": "^3.1.1",
+    "react-dom": "^16.9.0"
+  },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^4.14.2",
-    "@typescript-eslint/parser": "^4.14.2",
-    "babel-plugin-graphql-tag": "2.5.0",
-    "eslint": "^7.19.0",
-    "eslint-plugin-react": "^7.22.0",
-    "husky": "^4.3.8",
-    "lint-staged": "^10.5.4",
-    "prettier": "^2.2.1",
-    "typescript": "^4.1.3"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.{ts,tsx,js}": [
-      "yarn run lint",
-      "yarn run format"
-    ],
-    "*.scss": "yarn run lint:styles"
+    "@types/node": "^14.14.28",
+    "@types/react": "^17.0.2",
+    "typescript": "^4.1.5"
   }
 }

@@ -1,28 +1,35 @@
-import Header from "../components/Header";
-import Login from "../components/Auth/Login";
+import { gql, useQuery } from "@apollo/client";
+import { initializeApollo } from "../lib/apolloClient";
+import { GetStaticProps } from "next";
 
-import { useFetchUser } from "../lib/user";
-import { withApollo } from "../lib/withApollo";
-
-const IndexPage = () => {
-  const { user, loading } = useFetchUser({ required: true });
-  if (!loading && !user) {
-    return <div className="test">Hello frrom index</div>;
+const query = gql`
+  query {
+    author {
+      id
+      name
+    }
   }
-  return (
-    <div>
-      <Header />
-      <div className="row container-fluid p-left-right-0 m-left-right-0">
-        <div className="row col-md-9 p-left-right-0 m-left-right-0"></div>
-        <div className="col-md-3 p-left-right-0">
-          <div className="col-md-12 sliderMenu p-30 bg-gray"></div>
-        </div>
-      </div>
-    </div>
-  );
+`;
+
+const Index = (props) => {
+  const { loading, error, data } = useQuery(query);
+
+  return <div>{data.author[0].name}</div>;
 };
 
-export default withApollo({ ssr: true })(IndexPage);
+export default Index;
 
-// enable the line below for client side rendering of <TodoPrivateWrapper />
-// export default withApollo()(IndexPage)
+export const getStaticProps: GetStaticProps = async () => {
+  const apolloClient = initializeApollo();
+
+  await apolloClient.query({
+    query: query,
+  });
+
+  return {
+    props: {
+      initialApolloState: apolloClient.cache.extract(),
+    },
+    revalidate: 1,
+  };
+};

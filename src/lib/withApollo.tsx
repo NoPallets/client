@@ -57,9 +57,10 @@ async function getHeaders(ctx) {
 
   const s = await auth0.getSession(ctx.req);
   if (s && s.accessToken == null) return null;
-
+  console.log(s.accessToken);
   return {
     authorization: `Bearer ${s ? s.accessToken : ""}`,
+    // "X-Hasura-Admin-Secret": "myadminsecret",
   };
 }
 
@@ -120,14 +121,12 @@ export const withApollo = ({ ssr = true } = {}) => (PageComponent) => {
   if (ssr || PageComponent.getInitialProps) {
     WithApollo.getInitialProps = async (ctx) => {
       const { AppTree } = ctx;
-
       // Initialize ApolloClient, add it to the ctx object so
       // we can use it in `PageComponent.getInitialProp`.
-      const apolloClient = (ctx.apolloClient = initApolloClient(
-        null,
-        await getHeaders(ctx)
-      ));
-
+      const apolloClient = (ctx.apolloClient = initApolloClient(null, {
+        ...(await getHeaders(ctx)),
+        "X-Hasura-Admin-Secret": "myadminsecret",
+      }));
       // Run wrapped getInitialProps methods
       let pageProps = {};
       if (PageComponent.getInitialProps) {

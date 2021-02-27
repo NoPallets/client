@@ -1,24 +1,15 @@
-import Header from "../components/Header";
-import Login from "../components/Auth/Login";
-
 import { useFetchUser } from "../lib/user";
 import { withApollo } from "../lib/withApollo";
+import { ProductForm } from "../components/ProductForm/ProductForm";
 
 const IndexPage = () => {
-  const { user, loading } = useFetchUser({ required: true });
-  if (!loading && !user) {
-    return <div className="test">Hello frrom index</div>;
-  }
+  const { user } = useFetchUser();
+  console.log(user);
   return (
-    <div>
-      <Header />
-      <div className="row container-fluid p-left-right-0 m-left-right-0">
-        <div className="row col-md-9 p-left-right-0 m-left-right-0"></div>
-        <div className="col-md-3 p-left-right-0">
-          <div className="col-md-12 sliderMenu p-30 bg-gray"></div>
-        </div>
-      </div>
-    </div>
+    <>
+      <ProductForm />
+      <div className="test">test</div>{" "}
+    </>
   );
 };
 

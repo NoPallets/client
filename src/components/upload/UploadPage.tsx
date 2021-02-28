@@ -2,9 +2,16 @@ import { useMutation } from "@apollo/client";
 import { v4 as uuidv4 } from "uuid";
 import { ChangeEvent } from "react";
 import { AddProduct } from "../../graphql/mutations";
+import {
+  AddProductMutation,
+  AddProductMutationVariables,
+} from "../../generated/graphql";
 
 const Upload = () => {
-  const [addProduct] = useMutation(AddProduct);
+  const [addProduct] = useMutation<
+    AddProductMutation,
+    AddProductMutationVariables
+  >(AddProduct);
 
   const uploadPhoto = async (e: ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files[0];

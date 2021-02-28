@@ -1,4 +1,3 @@
-// lib/apolloClient.ts
 import { useMemo } from "react";
 import { ApolloClient, HttpLink, InMemoryCache } from "@apollo/client";
 

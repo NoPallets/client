@@ -1,6 +1,7 @@
 import { gql, useQuery } from "@apollo/client";
 import { initializeApollo } from "../lib/apolloClient";
 import { GetStaticProps } from "next";
+import Layout from "../components/layout/Layout";
 
 const query = gql`
   query {
@@ -14,7 +15,11 @@ const query = gql`
 const Index = (props) => {
   const { loading, error, data } = useQuery(query);
 
-  return <div>{data.author[0].name}</div>;
+  return (
+    <Layout title="No Pallets">
+      <div>{data.author[0].name}</div>
+    </Layout>
+  );
 };
 
 export default Index;

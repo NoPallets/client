@@ -5,15 +5,16 @@ type LayoutProps = React.PropsWithChildren<{
   title?: string;
 }>;
 
-export default function Layout({ title, children }: LayoutProps) {
+const Layout = ({ title, children }: LayoutProps) => {
   return (
     <>
       <Head>
         <title>{title}</title>
       </Head>
       {children}
-
       <Footer />
     </>
   );
-}
+};
+
+export default Layout

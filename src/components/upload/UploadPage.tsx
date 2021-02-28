@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 import { ChangeEvent } from "react";
 import { AddProduct } from "../../graphql/mutations";
 
-export default function Upload() {
+const Upload = () => {
   const [addProduct] = useMutation(AddProduct);
 
   const uploadPhoto = async (e: ChangeEvent<HTMLInputElement>) => {
@@ -50,4 +50,6 @@ export default function Upload() {
       />
     </>
   );
-}
+};
+
+export default Upload;

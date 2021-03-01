@@ -1,1 +1,1 @@
-export { default as GetAuthors } from "./GetAuthors";
+export { default as GetProducts } from "./GetProducts";

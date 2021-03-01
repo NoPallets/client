@@ -1,8 +1,8 @@
 import { GetStaticProps } from "next";
 
 import { initializeApollo } from "../lib/apolloClient";
-import { GetAuthors } from "../graphql/queries";
-import { GetAuthorsQuery } from "../graphql/generated/graphql";
+import { GetProducts } from "../graphql/queries";
+import { GetProductsQuery } from "../graphql/generated/graphql";
 import IndexPage from "../components/index/IndexPage";
 
 export default IndexPage;
@@ -10,13 +10,13 @@ export default IndexPage;
 export const getStaticProps: GetStaticProps = async () => {
   const apolloClient = initializeApollo();
 
-  const { data } = await apolloClient.query<GetAuthorsQuery>({
-    query: GetAuthors,
+  const { data } = await apolloClient.query<GetProductsQuery>({
+    query: GetProducts,
   });
 
   return {
     props: {
-      authors: data.author,
+      products: data.product,
     },
     revalidate: 1,
   };

@@ -956,14 +956,14 @@ export type AddProductMutation = (
   )> }
 );
 
-export type GetAuthorsQueryVariables = Exact<{ [key: string]: never; }>;
+export type GetProductsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetAuthorsQuery = (
+export type GetProductsQuery = (
   { __typename?: 'query_root' }
-  & { author: Array<(
-    { __typename?: 'author' }
-    & Pick<Author, 'id' | 'name'>
+  & { product: Array<(
+    { __typename?: 'product' }
+    & Pick<Product, 'description' | 'id' | 'price' | 's3_url' | 'sold' | 'title' | 'date'>
   )> }
 );
 
@@ -1001,36 +1001,41 @@ export function useAddProductMutation(baseOptions?: Apollo.MutationHookOptions<A
 export type AddProductMutationHookResult = ReturnType<typeof useAddProductMutation>;
 export type AddProductMutationResult = Apollo.MutationResult<AddProductMutation>;
 export type AddProductMutationOptions = Apollo.BaseMutationOptions<AddProductMutation, AddProductMutationVariables>;
-export const GetAuthorsDocument = gql`
-    query GetAuthors {
-  author {
+export const GetProductsDocument = gql`
+    query GetProducts {
+  product {
+    description
     id
-    name
+    price
+    s3_url
+    sold
+    title
+    date
   }
 }
     `;
 
 /**
- * __useGetAuthorsQuery__
+ * __useGetProductsQuery__
  *
- * To run a query within a React component, call `useGetAuthorsQuery` and pass it any options that fit your needs.
- * When your component renders, `useGetAuthorsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * To run a query within a React component, call `useGetProductsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetProductsQuery` returns an object from Apollo Client that contains loading, error, and data properties
  * you can use to render your UI.
  *
  * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
  *
  * @example
- * const { data, loading, error } = useGetAuthorsQuery({
+ * const { data, loading, error } = useGetProductsQuery({
  *   variables: {
  *   },
  * });
  */
-export function useGetAuthorsQuery(baseOptions?: Apollo.QueryHookOptions<GetAuthorsQuery, GetAuthorsQueryVariables>) {
-        return Apollo.useQuery<GetAuthorsQuery, GetAuthorsQueryVariables>(GetAuthorsDocument, baseOptions);
+export function useGetProductsQuery(baseOptions?: Apollo.QueryHookOptions<GetProductsQuery, GetProductsQueryVariables>) {
+        return Apollo.useQuery<GetProductsQuery, GetProductsQueryVariables>(GetProductsDocument, baseOptions);
       }
-export function useGetAuthorsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetAuthorsQuery, GetAuthorsQueryVariables>) {
-          return Apollo.useLazyQuery<GetAuthorsQuery, GetAuthorsQueryVariables>(GetAuthorsDocument, baseOptions);
+export function useGetProductsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetProductsQuery, GetProductsQueryVariables>) {
+          return Apollo.useLazyQuery<GetProductsQuery, GetProductsQueryVariables>(GetProductsDocument, baseOptions);
         }
-export type GetAuthorsQueryHookResult = ReturnType<typeof useGetAuthorsQuery>;
-export type GetAuthorsLazyQueryHookResult = ReturnType<typeof useGetAuthorsLazyQuery>;
-export type GetAuthorsQueryResult = Apollo.QueryResult<GetAuthorsQuery, GetAuthorsQueryVariables>;
+export type GetProductsQueryHookResult = ReturnType<typeof useGetProductsQuery>;
+export type GetProductsLazyQueryHookResult = ReturnType<typeof useGetProductsLazyQuery>;
+export type GetProductsQueryResult = Apollo.QueryResult<GetProductsQuery, GetProductsQueryVariables>;

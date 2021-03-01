@@ -1,39 +1,22 @@
-import { gql, useQuery } from "@apollo/client";
-import { initializeApollo } from "../lib/apolloClient";
 import { GetStaticProps } from "next";
-import Layout from "../components/layout/Layout";
 
-const query = gql`
-  query {
-    author {
-      id
-      name
-    }
-  }
-`;
+import { initializeApollo } from "../lib/apolloClient";
+import { GetAuthors } from "../graphql/queries";
+import { GetAuthorsQuery } from "../graphql/generated/graphql";
+import IndexPage from "../components/index/IndexPage";
 
-const Index = (props) => {
-  const { loading, error, data } = useQuery(query);
-
-  return (
-    <Layout title="No Pallets">
-      <div>{data.author[0].name}</div>
-    </Layout>
-  );
-};
-
-export default Index;
+export default IndexPage;
 
 export const getStaticProps: GetStaticProps = async () => {
   const apolloClient = initializeApollo();
 
-  await apolloClient.query({
-    query: query,
+  const { data } = await apolloClient.query<GetAuthorsQuery>({
+    query: GetAuthors,
   });
 
   return {
     props: {
-      initialApolloState: apolloClient.cache.extract(),
+      authors: data.author,
     },
     revalidate: 1,
   };

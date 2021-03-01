@@ -956,6 +956,17 @@ export type AddProductMutation = (
   )> }
 );
 
+export type GetAuthorsQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetAuthorsQuery = (
+  { __typename?: 'query_root' }
+  & { author: Array<(
+    { __typename?: 'author' }
+    & Pick<Author, 'id' | 'name'>
+  )> }
+);
+
 
 export const AddProductDocument = gql`
     mutation AddProduct($title: String!, $url: String!) {
@@ -990,3 +1001,36 @@ export function useAddProductMutation(baseOptions?: Apollo.MutationHookOptions<A
 export type AddProductMutationHookResult = ReturnType<typeof useAddProductMutation>;
 export type AddProductMutationResult = Apollo.MutationResult<AddProductMutation>;
 export type AddProductMutationOptions = Apollo.BaseMutationOptions<AddProductMutation, AddProductMutationVariables>;
+export const GetAuthorsDocument = gql`
+    query GetAuthors {
+  author {
+    id
+    name
+  }
+}
+    `;
+
+/**
+ * __useGetAuthorsQuery__
+ *
+ * To run a query within a React component, call `useGetAuthorsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetAuthorsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetAuthorsQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useGetAuthorsQuery(baseOptions?: Apollo.QueryHookOptions<GetAuthorsQuery, GetAuthorsQueryVariables>) {
+        return Apollo.useQuery<GetAuthorsQuery, GetAuthorsQueryVariables>(GetAuthorsDocument, baseOptions);
+      }
+export function useGetAuthorsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetAuthorsQuery, GetAuthorsQueryVariables>) {
+          return Apollo.useLazyQuery<GetAuthorsQuery, GetAuthorsQueryVariables>(GetAuthorsDocument, baseOptions);
+        }
+export type GetAuthorsQueryHookResult = ReturnType<typeof useGetAuthorsQuery>;
+export type GetAuthorsLazyQueryHookResult = ReturnType<typeof useGetAuthorsLazyQuery>;
+export type GetAuthorsQueryResult = Apollo.QueryResult<GetAuthorsQuery, GetAuthorsQueryVariables>;

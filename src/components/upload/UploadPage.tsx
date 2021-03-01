@@ -5,7 +5,7 @@ import { AddProduct } from "../../graphql/mutations";
 import {
   AddProductMutation,
   AddProductMutationVariables,
-} from "../../generated/graphql";
+} from "../../graphql/generated/graphql";
 
 const Upload = () => {
   const [addProduct] = useMutation<

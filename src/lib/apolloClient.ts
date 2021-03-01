@@ -7,7 +7,7 @@ function createApolloClient() {
   return new ApolloClient({
     ssrMode: typeof window === "undefined", // set to true for SSR
     link: new HttpLink({
-      uri: "https://no-pallets.herokuapp.com/v1/graphql", // <- Configure GraphQL Server URL (must be absolute)
+      uri: process.env.GRAPHQL_ENDPOINT, // <- Configure GraphQL Server URL (must be absolute)
     }),
     cache: new InMemoryCache(),
   });

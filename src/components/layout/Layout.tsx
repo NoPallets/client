@@ -11,6 +11,12 @@ const Layout = ({ title, children }: LayoutProps) => {
     <>
       <Head>
         <title>{title}</title>
+        <link
+          rel="preload"
+          href="/fonts/universbold2.ttf"
+          as="font"
+          crossOrigin=""
+        />
       </Head>
       <Nav />
       {children}

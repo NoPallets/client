@@ -4,15 +4,15 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: "Univers bold";
-  src: url("../../public/fonts/universbold2.woff") format("woff"),
-    /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-      url("../../public/fonts/universbold2.ttf") format("truetype"); /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
+  font-family: "UniversBold";
+  src:url("/fonts/universbold2.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
   font-display: swap;
 }
 
 body {
-  font-family: "Univers bold";
+  font-family: "UniversBold";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

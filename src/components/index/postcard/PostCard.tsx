@@ -7,7 +7,7 @@ interface Props {
 
 const PostCard = ({ product }: Props) => {
   return (
-    <div className="w-96 h-96 relative">
+    <div className=" w-52 h-52 lg:w-96 lg:h-96 relative">
       <Image src={product.s3_url} layout="fill" objectFit="cover" />
     </div>
   );

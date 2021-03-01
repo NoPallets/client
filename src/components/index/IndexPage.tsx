@@ -9,10 +9,7 @@ interface Props {
 const IndexPage = ({ products }: Props) => {
   return (
     <Layout title="No Pallets">
-      <div
-        className="mx-auto my-0 grid grid-cols-3 gap-4"
-        style={{ width: "1200px" }}
-      >
+      <div className="mx-auto my-0 grid max-w-4xl p-8">
         {products.map((product) => (
           <PostCard product={product} key={product.id} />
         ))}

@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const Nav = () => {
   return (
-    <header className="w-auto xl:w-4/5 mx-auto sticky z-10 mb-20">
+    <header className="w-auto mx-auto sticky top-0 z-10 mb-20">
       <div className="flex justify-between items-center">
         <Link href="/about">
           <a className="cursor-pointer hover:opacity-50">About NP</a>

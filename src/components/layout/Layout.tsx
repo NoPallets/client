@@ -8,7 +8,7 @@ type LayoutProps = React.PropsWithChildren<{
 
 const Layout = ({ title, children }: LayoutProps) => {
   return (
-    <>
+    <div className="max-w-screen-2xl mx-auto my-0">
       <Head>
         <title>{title}</title>
         <link
@@ -21,7 +21,7 @@ const Layout = ({ title, children }: LayoutProps) => {
       <Nav />
       {children}
       <Footer />
-    </>
+    </div>
   );
 };
 

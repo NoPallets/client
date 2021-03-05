@@ -6,11 +6,7 @@ interface Props {
 }
 
 const PostCard = ({ product }: Props) => {
-  return (
-    <div className=" w-52 h-52 lg:w-96 lg:h-96 relative">
-      <Image src={product.s3_url} width={500} height={500} />
-    </div>
-  );
+  return <Image src={product.s3_url} width={450} height={450} />;
 };
 
 export default PostCard;

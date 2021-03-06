@@ -2,7 +2,7 @@ const withFonts = require("next-fonts");
 
 module.exports = withFonts({
   images: {
-    domains: ["nopallets-product-image.s3.eu-central-1.amazonaws.com"],
+    domains: ["d2jmaluif1rg1w.cloudfront.net"],
   },
   webpack(config, options) {
     config.node = {

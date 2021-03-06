@@ -1,0 +1,7 @@
+.postCard:hover .title {
+  display: block;
+}
+
+.title {
+  display: none;
+}

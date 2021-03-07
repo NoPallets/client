@@ -39,7 +39,7 @@ const Upload = () => {
       addProduct({
         variables: {
           title: "newfile",
-          url: `https://nopallets-product-image.s3.eu-central-1.amazonaws.com/${fields.key}`,
+          url: `https://d2jmaluif1rg1w.cloudfront.net/${fields.key}`,
         },
       });
     } else {

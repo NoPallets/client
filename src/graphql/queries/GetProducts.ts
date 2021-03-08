@@ -2,11 +2,10 @@ import { gql } from "@apollo/client";
 
 const GetProducts = gql`
   query GetProducts {
-    product {
+    products {
       description
       id
       price
-      s3_url
       sold
       title
       date

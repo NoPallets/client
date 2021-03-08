@@ -16,8 +16,8 @@
         "description": "query root",
         "fields": [
           {
-            "name": "author",
-            "description": "fetch data from the table: \"author\"",
+            "name": "images",
+            "description": "fetch data from the table: \"images\"",
             "args": [
               {
                 "name": "distinct_on",
@@ -30,7 +30,7 @@
                     "name": null,
                     "ofType": {
                       "kind": "ENUM",
-                      "name": "author_select_column",
+                      "name": "images_select_column",
                       "ofType": null
                     }
                   }
@@ -68,7 +68,7 @@
                     "name": null,
                     "ofType": {
                       "kind": "INPUT_OBJECT",
-                      "name": "author_order_by",
+                      "name": "images_order_by",
                       "ofType": null
                     }
                   }
@@ -80,7 +80,7 @@
                 "description": "filter the rows returned",
                 "type": {
                   "kind": "INPUT_OBJECT",
-                  "name": "author_bool_exp",
+                  "name": "images_bool_exp",
                   "ofType": null
                 },
                 "defaultValue": null
@@ -97,7 +97,7 @@
                   "name": null,
                   "ofType": {
                     "kind": "OBJECT",
-                    "name": "author",
+                    "name": "images",
                     "ofType": null
                   }
                 }
@@ -107,8 +107,8 @@
             "deprecationReason": null
           },
           {
-            "name": "author_aggregate",
-            "description": "fetch aggregated fields from the table: \"author\"",
+            "name": "images_aggregate",
+            "description": "fetch aggregated fields from the table: \"images\"",
             "args": [
               {
                 "name": "distinct_on",
@@ -121,7 +121,7 @@
                     "name": null,
                     "ofType": {
                       "kind": "ENUM",
-                      "name": "author_select_column",
+                      "name": "images_select_column",
                       "ofType": null
                     }
                   }
@@ -159,7 +159,7 @@
                     "name": null,
                     "ofType": {
                       "kind": "INPUT_OBJECT",
-                      "name": "author_order_by",
+                      "name": "images_order_by",
                       "ofType": null
                     }
                   }
@@ -171,7 +171,7 @@
                 "description": "filter the rows returned",
                 "type": {
                   "kind": "INPUT_OBJECT",
-                  "name": "author_bool_exp",
+                  "name": "images_bool_exp",
                   "ofType": null
                 },
                 "defaultValue": null
@@ -182,7 +182,7 @@
               "name": null,
               "ofType": {
                 "kind": "OBJECT",
-                "name": "author_aggregate",
+                "name": "images_aggregate",
                 "ofType": null
               }
             },
@@ -190,209 +190,8 @@
             "deprecationReason": null
           },
           {
-            "name": "author_by_pk",
-            "description": "fetch data from the table: \"author\" using primary key columns",
-            "args": [
-              {
-                "name": "id",
-                "description": null,
-                "type": {
-                  "kind": "NON_NULL",
-                  "name": null,
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Int",
-                    "ofType": null
-                  }
-                },
-                "defaultValue": null
-              }
-            ],
-            "type": {
-              "kind": "OBJECT",
-              "name": "author",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "product",
-            "description": "fetch data from the table: \"product\"",
-            "args": [
-              {
-                "name": "distinct_on",
-                "description": "distinct select on columns",
-                "type": {
-                  "kind": "LIST",
-                  "name": null,
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "name": null,
-                    "ofType": {
-                      "kind": "ENUM",
-                      "name": "product_select_column",
-                      "ofType": null
-                    }
-                  }
-                },
-                "defaultValue": null
-              },
-              {
-                "name": "limit",
-                "description": "limit the number of rows returned",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Int",
-                  "ofType": null
-                },
-                "defaultValue": null
-              },
-              {
-                "name": "offset",
-                "description": "skip the first n rows. Use only with order_by",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Int",
-                  "ofType": null
-                },
-                "defaultValue": null
-              },
-              {
-                "name": "order_by",
-                "description": "sort the rows by one or more columns",
-                "type": {
-                  "kind": "LIST",
-                  "name": null,
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "name": null,
-                    "ofType": {
-                      "kind": "INPUT_OBJECT",
-                      "name": "product_order_by",
-                      "ofType": null
-                    }
-                  }
-                },
-                "defaultValue": null
-              },
-              {
-                "name": "where",
-                "description": "filter the rows returned",
-                "type": {
-                  "kind": "INPUT_OBJECT",
-                  "name": "product_bool_exp",
-                  "ofType": null
-                },
-                "defaultValue": null
-              }
-            ],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "LIST",
-                "name": null,
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "name": null,
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "product",
-                    "ofType": null
-                  }
-                }
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "product_aggregate",
-            "description": "fetch aggregated fields from the table: \"product\"",
-            "args": [
-              {
-                "name": "distinct_on",
-                "description": "distinct select on columns",
-                "type": {
-                  "kind": "LIST",
-                  "name": null,
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "name": null,
-                    "ofType": {
-                      "kind": "ENUM",
-                      "name": "product_select_column",
-                      "ofType": null
-                    }
-                  }
-                },
-                "defaultValue": null
-              },
-              {
-                "name": "limit",
-                "description": "limit the number of rows returned",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Int",
-                  "ofType": null
-                },
-                "defaultValue": null
-              },
-              {
-                "name": "offset",
-                "description": "skip the first n rows. Use only with order_by",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Int",
-                  "ofType": null
-                },
-                "defaultValue": null
-              },
-              {
-                "name": "order_by",
-                "description": "sort the rows by one or more columns",
-                "type": {
-                  "kind": "LIST",
-                  "name": null,
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "name": null,
-                    "ofType": {
-                      "kind": "INPUT_OBJECT",
-                      "name": "product_order_by",
-                      "ofType": null
-                    }
-                  }
-                },
-                "defaultValue": null
-              },
-              {
-                "name": "where",
-                "description": "filter the rows returned",
-                "type": {
-                  "kind": "INPUT_OBJECT",
-                  "name": "product_bool_exp",
-                  "ofType": null
-                },
-                "defaultValue": null
-              }
-            ],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "product_aggregate",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "product_by_pk",
-            "description": "fetch data from the table: \"product\" using primary key columns",
+            "name": "images_by_pk",
+            "description": "fetch data from the table: \"images\" using primary key columns",
             "args": [
               {
                 "name": "id",
@@ -411,7 +210,208 @@
             ],
             "type": {
               "kind": "OBJECT",
-              "name": "product",
+              "name": "images",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "products",
+            "description": "fetch data from the table: \"products\"",
+            "args": [
+              {
+                "name": "distinct_on",
+                "description": "distinct select on columns",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "ENUM",
+                      "name": "products_select_column",
+                      "ofType": null
+                    }
+                  }
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "limit",
+                "description": "limit the number of rows returned",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "offset",
+                "description": "skip the first n rows. Use only with order_by",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "order_by",
+                "description": "sort the rows by one or more columns",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "products_order_by",
+                      "ofType": null
+                    }
+                  }
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "where",
+                "description": "filter the rows returned",
+                "type": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "products_bool_exp",
+                  "ofType": null
+                },
+                "defaultValue": null
+              }
+            ],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "products",
+                    "ofType": null
+                  }
+                }
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "products_aggregate",
+            "description": "fetch aggregated fields from the table: \"products\"",
+            "args": [
+              {
+                "name": "distinct_on",
+                "description": "distinct select on columns",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "ENUM",
+                      "name": "products_select_column",
+                      "ofType": null
+                    }
+                  }
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "limit",
+                "description": "limit the number of rows returned",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "offset",
+                "description": "skip the first n rows. Use only with order_by",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "order_by",
+                "description": "sort the rows by one or more columns",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "products_order_by",
+                      "ofType": null
+                    }
+                  }
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "where",
+                "description": "filter the rows returned",
+                "type": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "products_bool_exp",
+                  "ofType": null
+                },
+                "defaultValue": null
+              }
+            ],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "products_aggregate",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "products_by_pk",
+            "description": "fetch data from the table: \"products\" using primary key columns",
+            "args": [
+              {
+                "name": "id",
+                "description": null,
+                "type": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "uuid",
+                    "ofType": null
+                  }
+                },
+                "defaultValue": null
+              }
+            ],
+            "type": {
+              "kind": "OBJECT",
+              "name": "products",
               "ofType": null
             },
             "isDeprecated": false,
@@ -425,8 +425,8 @@
       },
       {
         "kind": "ENUM",
-        "name": "author_select_column",
-        "description": "select columns of table \"author\"",
+        "name": "images_select_column",
+        "description": "select columns of table \"images\"",
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -438,7 +438,13 @@
             "deprecationReason": null
           },
           {
-            "name": "name",
+            "name": "product_id",
+            "description": "column name",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "s3_url",
             "description": "column name",
             "isDeprecated": false,
             "deprecationReason": null
@@ -458,8 +464,8 @@
       },
       {
         "kind": "INPUT_OBJECT",
-        "name": "author_order_by",
-        "description": "ordering options when selecting data from \"author\"",
+        "name": "images_order_by",
+        "description": "ordering options when selecting data from \"images\"",
         "fields": null,
         "inputFields": [
           {
@@ -473,7 +479,17 @@
             "defaultValue": null
           },
           {
-            "name": "name",
+            "name": "product_id",
+            "description": null,
+            "type": {
+              "kind": "ENUM",
+              "name": "order_by",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "s3_url",
             "description": null,
             "type": {
               "kind": "ENUM",
@@ -536,8 +552,8 @@
       },
       {
         "kind": "INPUT_OBJECT",
-        "name": "author_bool_exp",
-        "description": "Boolean expression to filter rows from the table \"author\". All fields are combined with a logical 'AND'.",
+        "name": "images_bool_exp",
+        "description": "Boolean expression to filter rows from the table \"images\". All fields are combined with a logical 'AND'.",
         "fields": null,
         "inputFields": [
           {
@@ -548,7 +564,7 @@
               "name": null,
               "ofType": {
                 "kind": "INPUT_OBJECT",
-                "name": "author_bool_exp",
+                "name": "images_bool_exp",
                 "ofType": null
               }
             },
@@ -559,7 +575,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "author_bool_exp",
+              "name": "images_bool_exp",
               "ofType": null
             },
             "defaultValue": null
@@ -572,7 +588,7 @@
               "name": null,
               "ofType": {
                 "kind": "INPUT_OBJECT",
-                "name": "author_bool_exp",
+                "name": "images_bool_exp",
                 "ofType": null
               }
             },
@@ -583,13 +599,23 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "Int_comparison_exp",
+              "name": "uuid_comparison_exp",
               "ofType": null
             },
             "defaultValue": null
           },
           {
-            "name": "name",
+            "name": "product_id",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "uuid_comparison_exp",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "s3_url",
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
@@ -605,8 +631,8 @@
       },
       {
         "kind": "INPUT_OBJECT",
-        "name": "Int_comparison_exp",
-        "description": "expression to compare columns of type Int. All fields are combined with logical 'AND'.",
+        "name": "uuid_comparison_exp",
+        "description": "expression to compare columns of type uuid. All fields are combined with logical 'AND'.",
         "fields": null,
         "inputFields": [
           {
@@ -614,7 +640,7 @@
             "description": null,
             "type": {
               "kind": "SCALAR",
-              "name": "Int",
+              "name": "uuid",
               "ofType": null
             },
             "defaultValue": null
@@ -624,7 +650,7 @@
             "description": null,
             "type": {
               "kind": "SCALAR",
-              "name": "Int",
+              "name": "uuid",
               "ofType": null
             },
             "defaultValue": null
@@ -634,7 +660,7 @@
             "description": null,
             "type": {
               "kind": "SCALAR",
-              "name": "Int",
+              "name": "uuid",
               "ofType": null
             },
             "defaultValue": null
@@ -650,7 +676,7 @@
                 "name": null,
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Int",
+                  "name": "uuid",
                   "ofType": null
                 }
               }
@@ -672,7 +698,7 @@
             "description": null,
             "type": {
               "kind": "SCALAR",
-              "name": "Int",
+              "name": "uuid",
               "ofType": null
             },
             "defaultValue": null
@@ -682,7 +708,7 @@
             "description": null,
             "type": {
               "kind": "SCALAR",
-              "name": "Int",
+              "name": "uuid",
               "ofType": null
             },
             "defaultValue": null
@@ -692,7 +718,7 @@
             "description": null,
             "type": {
               "kind": "SCALAR",
-              "name": "Int",
+              "name": "uuid",
               "ofType": null
             },
             "defaultValue": null
@@ -708,7 +734,7 @@
                 "name": null,
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Int",
+                  "name": "uuid",
                   "ofType": null
                 }
               }
@@ -716,6 +742,16 @@
             "defaultValue": null
           }
         ],
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "SCALAR",
+        "name": "uuid",
+        "description": null,
+        "fields": null,
+        "inputFields": null,
         "interfaces": null,
         "enumValues": null,
         "possibleTypes": null
@@ -919,8 +955,8 @@
       },
       {
         "kind": "OBJECT",
-        "name": "author",
-        "description": "columns and relationships of \"author\"",
+        "name": "images",
+        "description": "columns and relationships of \"images\"",
         "fields": [
           {
             "name": "id",
@@ -931,7 +967,7 @@
               "name": null,
               "ofType": {
                 "kind": "SCALAR",
-                "name": "Int",
+                "name": "uuid",
                 "ofType": null
               }
             },
@@ -939,7 +975,23 @@
             "deprecationReason": null
           },
           {
-            "name": "name",
+            "name": "product_id",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "uuid",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "s3_url",
             "description": null,
             "args": [],
             "type": {
@@ -962,8 +1014,8 @@
       },
       {
         "kind": "OBJECT",
-        "name": "author_aggregate",
-        "description": "aggregated selection of \"author\"",
+        "name": "images_aggregate",
+        "description": "aggregated selection of \"images\"",
         "fields": [
           {
             "name": "aggregate",
@@ -971,7 +1023,7 @@
             "args": [],
             "type": {
               "kind": "OBJECT",
-              "name": "author_aggregate_fields",
+              "name": "images_aggregate_fields",
               "ofType": null
             },
             "isDeprecated": false,
@@ -992,7 +1044,7 @@
                   "name": null,
                   "ofType": {
                     "kind": "OBJECT",
-                    "name": "author",
+                    "name": "images",
                     "ofType": null
                   }
                 }
@@ -1009,21 +1061,9 @@
       },
       {
         "kind": "OBJECT",
-        "name": "author_aggregate_fields",
-        "description": "aggregate fields of \"author\"",
+        "name": "images_aggregate_fields",
+        "description": "aggregate fields of \"images\"",
         "fields": [
-          {
-            "name": "avg",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "OBJECT",
-              "name": "author_avg_fields",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
           {
             "name": "count",
             "description": null,
@@ -1039,7 +1079,7 @@
                     "name": null,
                     "ofType": {
                       "kind": "ENUM",
-                      "name": "author_select_column",
+                      "name": "images_select_column",
                       "ofType": null
                     }
                   }
@@ -1071,7 +1111,7 @@
             "args": [],
             "type": {
               "kind": "OBJECT",
-              "name": "author_max_fields",
+              "name": "images_max_fields",
               "ofType": null
             },
             "isDeprecated": false,
@@ -1083,91 +1123,7 @@
             "args": [],
             "type": {
               "kind": "OBJECT",
-              "name": "author_min_fields",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "stddev",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "OBJECT",
-              "name": "author_stddev_fields",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "stddev_pop",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "OBJECT",
-              "name": "author_stddev_pop_fields",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "stddev_samp",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "OBJECT",
-              "name": "author_stddev_samp_fields",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "sum",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "OBJECT",
-              "name": "author_sum_fields",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "var_pop",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "OBJECT",
-              "name": "author_var_pop_fields",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "var_samp",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "OBJECT",
-              "name": "author_var_samp_fields",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "variance",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "OBJECT",
-              "name": "author_variance_fields",
+              "name": "images_min_fields",
               "ofType": null
             },
             "isDeprecated": false,
@@ -1181,40 +1137,7 @@
       },
       {
         "kind": "OBJECT",
-        "name": "author_avg_fields",
-        "description": "aggregate avg on columns",
-        "fields": [
-          {
-            "name": "id",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "Float",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          }
-        ],
-        "inputFields": null,
-        "interfaces": [],
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "SCALAR",
-        "name": "Float",
-        "description": "The `Float` scalar type represents signed double-precision fractional values as specified by [IEEE 754](https://en.wikipedia.org/wiki/IEEE_floating_point).",
-        "fields": null,
-        "inputFields": null,
-        "interfaces": null,
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "OBJECT",
-        "name": "author_max_fields",
+        "name": "images_max_fields",
         "description": "aggregate max on columns",
         "fields": [
           {
@@ -1223,14 +1146,26 @@
             "args": [],
             "type": {
               "kind": "SCALAR",
-              "name": "Int",
+              "name": "uuid",
               "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
-            "name": "name",
+            "name": "product_id",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "uuid",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "s3_url",
             "description": null,
             "args": [],
             "type": {
@@ -1249,7 +1184,7 @@
       },
       {
         "kind": "OBJECT",
-        "name": "author_min_fields",
+        "name": "images_min_fields",
         "description": "aggregate min on columns",
         "fields": [
           {
@@ -1258,180 +1193,31 @@
             "args": [],
             "type": {
               "kind": "SCALAR",
-              "name": "Int",
+              "name": "uuid",
               "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
-            "name": "name",
+            "name": "product_id",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "uuid",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "s3_url",
             "description": null,
             "args": [],
             "type": {
               "kind": "SCALAR",
               "name": "String",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          }
-        ],
-        "inputFields": null,
-        "interfaces": [],
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "OBJECT",
-        "name": "author_stddev_fields",
-        "description": "aggregate stddev on columns",
-        "fields": [
-          {
-            "name": "id",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "Float",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          }
-        ],
-        "inputFields": null,
-        "interfaces": [],
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "OBJECT",
-        "name": "author_stddev_pop_fields",
-        "description": "aggregate stddev_pop on columns",
-        "fields": [
-          {
-            "name": "id",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "Float",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          }
-        ],
-        "inputFields": null,
-        "interfaces": [],
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "OBJECT",
-        "name": "author_stddev_samp_fields",
-        "description": "aggregate stddev_samp on columns",
-        "fields": [
-          {
-            "name": "id",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "Float",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          }
-        ],
-        "inputFields": null,
-        "interfaces": [],
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "OBJECT",
-        "name": "author_sum_fields",
-        "description": "aggregate sum on columns",
-        "fields": [
-          {
-            "name": "id",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "Int",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          }
-        ],
-        "inputFields": null,
-        "interfaces": [],
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "OBJECT",
-        "name": "author_var_pop_fields",
-        "description": "aggregate var_pop on columns",
-        "fields": [
-          {
-            "name": "id",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "Float",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          }
-        ],
-        "inputFields": null,
-        "interfaces": [],
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "OBJECT",
-        "name": "author_var_samp_fields",
-        "description": "aggregate var_samp on columns",
-        "fields": [
-          {
-            "name": "id",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "Float",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          }
-        ],
-        "inputFields": null,
-        "interfaces": [],
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "OBJECT",
-        "name": "author_variance_fields",
-        "description": "aggregate variance on columns",
-        "fields": [
-          {
-            "name": "id",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "Float",
               "ofType": null
             },
             "isDeprecated": false,
@@ -1445,8 +1231,8 @@
       },
       {
         "kind": "ENUM",
-        "name": "product_select_column",
-        "description": "select columns of table \"product\"",
+        "name": "products_select_column",
+        "description": "select columns of table \"products\"",
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -1476,12 +1262,6 @@
             "deprecationReason": null
           },
           {
-            "name": "s3_url",
-            "description": "column name",
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "sold",
             "description": "column name",
             "isDeprecated": false,
@@ -1498,8 +1278,8 @@
       },
       {
         "kind": "INPUT_OBJECT",
-        "name": "product_order_by",
-        "description": "ordering options when selecting data from \"product\"",
+        "name": "products_order_by",
+        "description": "ordering options when selecting data from \"products\"",
         "fields": null,
         "inputFields": [
           {
@@ -1543,16 +1323,6 @@
             "defaultValue": null
           },
           {
-            "name": "s3_url",
-            "description": null,
-            "type": {
-              "kind": "ENUM",
-              "name": "order_by",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
             "name": "sold",
             "description": null,
             "type": {
@@ -1579,8 +1349,8 @@
       },
       {
         "kind": "INPUT_OBJECT",
-        "name": "product_bool_exp",
-        "description": "Boolean expression to filter rows from the table \"product\". All fields are combined with a logical 'AND'.",
+        "name": "products_bool_exp",
+        "description": "Boolean expression to filter rows from the table \"products\". All fields are combined with a logical 'AND'.",
         "fields": null,
         "inputFields": [
           {
@@ -1591,7 +1361,7 @@
               "name": null,
               "ofType": {
                 "kind": "INPUT_OBJECT",
-                "name": "product_bool_exp",
+                "name": "products_bool_exp",
                 "ofType": null
               }
             },
@@ -1602,7 +1372,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "product_bool_exp",
+              "name": "products_bool_exp",
               "ofType": null
             },
             "defaultValue": null
@@ -1615,7 +1385,7 @@
               "name": null,
               "ofType": {
                 "kind": "INPUT_OBJECT",
-                "name": "product_bool_exp",
+                "name": "products_bool_exp",
                 "ofType": null
               }
             },
@@ -1657,16 +1427,6 @@
             "type": {
               "kind": "INPUT_OBJECT",
               "name": "numeric_comparison_exp",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "s3_url",
-            "description": null,
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "String_comparison_exp",
               "ofType": null
             },
             "defaultValue": null
@@ -1816,133 +1576,6 @@
       {
         "kind": "SCALAR",
         "name": "date",
-        "description": null,
-        "fields": null,
-        "inputFields": null,
-        "interfaces": null,
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "INPUT_OBJECT",
-        "name": "uuid_comparison_exp",
-        "description": "expression to compare columns of type uuid. All fields are combined with logical 'AND'.",
-        "fields": null,
-        "inputFields": [
-          {
-            "name": "_eq",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "uuid",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "_gt",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "uuid",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "_gte",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "uuid",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "_in",
-            "description": null,
-            "type": {
-              "kind": "LIST",
-              "name": null,
-              "ofType": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "uuid",
-                  "ofType": null
-                }
-              }
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "_is_null",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "Boolean",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "_lt",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "uuid",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "_lte",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "uuid",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "_neq",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "uuid",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "_nin",
-            "description": null,
-            "type": {
-              "kind": "LIST",
-              "name": null,
-              "ofType": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "uuid",
-                  "ofType": null
-                }
-              }
-            },
-            "defaultValue": null
-          }
-        ],
-        "interfaces": null,
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "SCALAR",
-        "name": "uuid",
         "description": null,
         "fields": null,
         "inputFields": null,
@@ -2196,8 +1829,8 @@
       },
       {
         "kind": "OBJECT",
-        "name": "product",
-        "description": "Table storing the products\n\n\ncolumns and relationships of \"product\"\n",
+        "name": "products",
+        "description": "Table storing the products\n\n\ncolumns and relationships of \"products\"\n",
         "fields": [
           {
             "name": "date",
@@ -2256,18 +1889,6 @@
             "deprecationReason": null
           },
           {
-            "name": "s3_url",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "sold",
             "description": null,
             "args": [],
@@ -2307,8 +1928,8 @@
       },
       {
         "kind": "OBJECT",
-        "name": "product_aggregate",
-        "description": "aggregated selection of \"product\"",
+        "name": "products_aggregate",
+        "description": "aggregated selection of \"products\"",
         "fields": [
           {
             "name": "aggregate",
@@ -2316,7 +1937,7 @@
             "args": [],
             "type": {
               "kind": "OBJECT",
-              "name": "product_aggregate_fields",
+              "name": "products_aggregate_fields",
               "ofType": null
             },
             "isDeprecated": false,
@@ -2337,7 +1958,7 @@
                   "name": null,
                   "ofType": {
                     "kind": "OBJECT",
-                    "name": "product",
+                    "name": "products",
                     "ofType": null
                   }
                 }
@@ -2354,8 +1975,8 @@
       },
       {
         "kind": "OBJECT",
-        "name": "product_aggregate_fields",
-        "description": "aggregate fields of \"product\"",
+        "name": "products_aggregate_fields",
+        "description": "aggregate fields of \"products\"",
         "fields": [
           {
             "name": "avg",
@@ -2363,7 +1984,7 @@
             "args": [],
             "type": {
               "kind": "OBJECT",
-              "name": "product_avg_fields",
+              "name": "products_avg_fields",
               "ofType": null
             },
             "isDeprecated": false,
@@ -2384,7 +2005,7 @@
                     "name": null,
                     "ofType": {
                       "kind": "ENUM",
-                      "name": "product_select_column",
+                      "name": "products_select_column",
                       "ofType": null
                     }
                   }
@@ -2416,7 +2037,7 @@
             "args": [],
             "type": {
               "kind": "OBJECT",
-              "name": "product_max_fields",
+              "name": "products_max_fields",
               "ofType": null
             },
             "isDeprecated": false,
@@ -2428,7 +2049,7 @@
             "args": [],
             "type": {
               "kind": "OBJECT",
-              "name": "product_min_fields",
+              "name": "products_min_fields",
               "ofType": null
             },
             "isDeprecated": false,
@@ -2440,7 +2061,7 @@
             "args": [],
             "type": {
               "kind": "OBJECT",
-              "name": "product_stddev_fields",
+              "name": "products_stddev_fields",
               "ofType": null
             },
             "isDeprecated": false,
@@ -2452,7 +2073,7 @@
             "args": [],
             "type": {
               "kind": "OBJECT",
-              "name": "product_stddev_pop_fields",
+              "name": "products_stddev_pop_fields",
               "ofType": null
             },
             "isDeprecated": false,
@@ -2464,7 +2085,7 @@
             "args": [],
             "type": {
               "kind": "OBJECT",
-              "name": "product_stddev_samp_fields",
+              "name": "products_stddev_samp_fields",
               "ofType": null
             },
             "isDeprecated": false,
@@ -2476,7 +2097,7 @@
             "args": [],
             "type": {
               "kind": "OBJECT",
-              "name": "product_sum_fields",
+              "name": "products_sum_fields",
               "ofType": null
             },
             "isDeprecated": false,
@@ -2488,7 +2109,7 @@
             "args": [],
             "type": {
               "kind": "OBJECT",
-              "name": "product_var_pop_fields",
+              "name": "products_var_pop_fields",
               "ofType": null
             },
             "isDeprecated": false,
@@ -2500,7 +2121,7 @@
             "args": [],
             "type": {
               "kind": "OBJECT",
-              "name": "product_var_samp_fields",
+              "name": "products_var_samp_fields",
               "ofType": null
             },
             "isDeprecated": false,
@@ -2512,7 +2133,7 @@
             "args": [],
             "type": {
               "kind": "OBJECT",
-              "name": "product_variance_fields",
+              "name": "products_variance_fields",
               "ofType": null
             },
             "isDeprecated": false,
@@ -2526,7 +2147,7 @@
       },
       {
         "kind": "OBJECT",
-        "name": "product_avg_fields",
+        "name": "products_avg_fields",
         "description": "aggregate avg on columns",
         "fields": [
           {
@@ -2548,8 +2169,18 @@
         "possibleTypes": null
       },
       {
+        "kind": "SCALAR",
+        "name": "Float",
+        "description": "The `Float` scalar type represents signed double-precision fractional values as specified by [IEEE 754](https://en.wikipedia.org/wiki/IEEE_floating_point).",
+        "fields": null,
+        "inputFields": null,
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
         "kind": "OBJECT",
-        "name": "product_max_fields",
+        "name": "products_max_fields",
         "description": "aggregate max on columns",
         "fields": [
           {
@@ -2601,18 +2232,6 @@
             "deprecationReason": null
           },
           {
-            "name": "s3_url",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "title",
             "description": null,
             "args": [],
@@ -2632,7 +2251,7 @@
       },
       {
         "kind": "OBJECT",
-        "name": "product_min_fields",
+        "name": "products_min_fields",
         "description": "aggregate min on columns",
         "fields": [
           {
@@ -2684,18 +2303,6 @@
             "deprecationReason": null
           },
           {
-            "name": "s3_url",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "title",
             "description": null,
             "args": [],
@@ -2715,7 +2322,7 @@
       },
       {
         "kind": "OBJECT",
-        "name": "product_stddev_fields",
+        "name": "products_stddev_fields",
         "description": "aggregate stddev on columns",
         "fields": [
           {
@@ -2738,7 +2345,7 @@
       },
       {
         "kind": "OBJECT",
-        "name": "product_stddev_pop_fields",
+        "name": "products_stddev_pop_fields",
         "description": "aggregate stddev_pop on columns",
         "fields": [
           {
@@ -2761,7 +2368,7 @@
       },
       {
         "kind": "OBJECT",
-        "name": "product_stddev_samp_fields",
+        "name": "products_stddev_samp_fields",
         "description": "aggregate stddev_samp on columns",
         "fields": [
           {
@@ -2784,7 +2391,7 @@
       },
       {
         "kind": "OBJECT",
-        "name": "product_sum_fields",
+        "name": "products_sum_fields",
         "description": "aggregate sum on columns",
         "fields": [
           {
@@ -2807,7 +2414,7 @@
       },
       {
         "kind": "OBJECT",
-        "name": "product_var_pop_fields",
+        "name": "products_var_pop_fields",
         "description": "aggregate var_pop on columns",
         "fields": [
           {
@@ -2830,7 +2437,7 @@
       },
       {
         "kind": "OBJECT",
-        "name": "product_var_samp_fields",
+        "name": "products_var_samp_fields",
         "description": "aggregate var_samp on columns",
         "fields": [
           {
@@ -2853,7 +2460,7 @@
       },
       {
         "kind": "OBJECT",
-        "name": "product_variance_fields",
+        "name": "products_variance_fields",
         "description": "aggregate variance on columns",
         "fields": [
           {
@@ -2880,8 +2487,8 @@
         "description": "mutation root",
         "fields": [
           {
-            "name": "delete_author",
-            "description": "delete data from the table: \"author\"",
+            "name": "delete_images",
+            "description": "delete data from the table: \"images\"",
             "args": [
               {
                 "name": "where",
@@ -2891,7 +2498,7 @@
                   "name": null,
                   "ofType": {
                     "kind": "INPUT_OBJECT",
-                    "name": "author_bool_exp",
+                    "name": "images_bool_exp",
                     "ofType": null
                   }
                 },
@@ -2900,69 +2507,15 @@
             ],
             "type": {
               "kind": "OBJECT",
-              "name": "author_mutation_response",
+              "name": "images_mutation_response",
               "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
-            "name": "delete_author_by_pk",
-            "description": "delete single row from the table: \"author\"",
-            "args": [
-              {
-                "name": "id",
-                "description": null,
-                "type": {
-                  "kind": "NON_NULL",
-                  "name": null,
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Int",
-                    "ofType": null
-                  }
-                },
-                "defaultValue": null
-              }
-            ],
-            "type": {
-              "kind": "OBJECT",
-              "name": "author",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "delete_product",
-            "description": "delete data from the table: \"product\"",
-            "args": [
-              {
-                "name": "where",
-                "description": "filter the rows which have to be deleted",
-                "type": {
-                  "kind": "NON_NULL",
-                  "name": null,
-                  "ofType": {
-                    "kind": "INPUT_OBJECT",
-                    "name": "product_bool_exp",
-                    "ofType": null
-                  }
-                },
-                "defaultValue": null
-              }
-            ],
-            "type": {
-              "kind": "OBJECT",
-              "name": "product_mutation_response",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "delete_product_by_pk",
-            "description": "delete single row from the table: \"product\"",
+            "name": "delete_images_by_pk",
+            "description": "delete single row from the table: \"images\"",
             "args": [
               {
                 "name": "id",
@@ -2981,15 +2534,69 @@
             ],
             "type": {
               "kind": "OBJECT",
-              "name": "product",
+              "name": "images",
               "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
-            "name": "insert_author",
-            "description": "insert data into the table: \"author\"",
+            "name": "delete_products",
+            "description": "delete data from the table: \"products\"",
+            "args": [
+              {
+                "name": "where",
+                "description": "filter the rows which have to be deleted",
+                "type": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "products_bool_exp",
+                    "ofType": null
+                  }
+                },
+                "defaultValue": null
+              }
+            ],
+            "type": {
+              "kind": "OBJECT",
+              "name": "products_mutation_response",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "delete_products_by_pk",
+            "description": "delete single row from the table: \"products\"",
+            "args": [
+              {
+                "name": "id",
+                "description": null,
+                "type": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "uuid",
+                    "ofType": null
+                  }
+                },
+                "defaultValue": null
+              }
+            ],
+            "type": {
+              "kind": "OBJECT",
+              "name": "products",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "insert_images",
+            "description": "insert data into the table: \"images\"",
             "args": [
               {
                 "name": "objects",
@@ -3005,7 +2612,7 @@
                       "name": null,
                       "ofType": {
                         "kind": "INPUT_OBJECT",
-                        "name": "author_insert_input",
+                        "name": "images_insert_input",
                         "ofType": null
                       }
                     }
@@ -3018,7 +2625,7 @@
                 "description": "on conflict condition",
                 "type": {
                   "kind": "INPUT_OBJECT",
-                  "name": "author_on_conflict",
+                  "name": "images_on_conflict",
                   "ofType": null
                 },
                 "defaultValue": null
@@ -3026,15 +2633,15 @@
             ],
             "type": {
               "kind": "OBJECT",
-              "name": "author_mutation_response",
+              "name": "images_mutation_response",
               "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
-            "name": "insert_author_one",
-            "description": "insert a single row into the table: \"author\"",
+            "name": "insert_images_one",
+            "description": "insert a single row into the table: \"images\"",
             "args": [
               {
                 "name": "object",
@@ -3044,7 +2651,7 @@
                   "name": null,
                   "ofType": {
                     "kind": "INPUT_OBJECT",
-                    "name": "author_insert_input",
+                    "name": "images_insert_input",
                     "ofType": null
                   }
                 },
@@ -3055,7 +2662,7 @@
                 "description": "on conflict condition",
                 "type": {
                   "kind": "INPUT_OBJECT",
-                  "name": "author_on_conflict",
+                  "name": "images_on_conflict",
                   "ofType": null
                 },
                 "defaultValue": null
@@ -3063,15 +2670,15 @@
             ],
             "type": {
               "kind": "OBJECT",
-              "name": "author",
+              "name": "images",
               "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
-            "name": "insert_product",
-            "description": "insert data into the table: \"product\"",
+            "name": "insert_products",
+            "description": "insert data into the table: \"products\"",
             "args": [
               {
                 "name": "objects",
@@ -3087,7 +2694,7 @@
                       "name": null,
                       "ofType": {
                         "kind": "INPUT_OBJECT",
-                        "name": "product_insert_input",
+                        "name": "products_insert_input",
                         "ofType": null
                       }
                     }
@@ -3100,7 +2707,7 @@
                 "description": "on conflict condition",
                 "type": {
                   "kind": "INPUT_OBJECT",
-                  "name": "product_on_conflict",
+                  "name": "products_on_conflict",
                   "ofType": null
                 },
                 "defaultValue": null
@@ -3108,15 +2715,15 @@
             ],
             "type": {
               "kind": "OBJECT",
-              "name": "product_mutation_response",
+              "name": "products_mutation_response",
               "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
-            "name": "insert_product_one",
-            "description": "insert a single row into the table: \"product\"",
+            "name": "insert_products_one",
+            "description": "insert a single row into the table: \"products\"",
             "args": [
               {
                 "name": "object",
@@ -3126,7 +2733,7 @@
                   "name": null,
                   "ofType": {
                     "kind": "INPUT_OBJECT",
-                    "name": "product_insert_input",
+                    "name": "products_insert_input",
                     "ofType": null
                   }
                 },
@@ -3137,7 +2744,7 @@
                 "description": "on conflict condition",
                 "type": {
                   "kind": "INPUT_OBJECT",
-                  "name": "product_on_conflict",
+                  "name": "products_on_conflict",
                   "ofType": null
                 },
                 "defaultValue": null
@@ -3145,32 +2752,22 @@
             ],
             "type": {
               "kind": "OBJECT",
-              "name": "product",
+              "name": "products",
               "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
-            "name": "update_author",
-            "description": "update data of the table: \"author\"",
+            "name": "update_images",
+            "description": "update data of the table: \"images\"",
             "args": [
-              {
-                "name": "_inc",
-                "description": "increments the integer columns with given value of the filtered values",
-                "type": {
-                  "kind": "INPUT_OBJECT",
-                  "name": "author_inc_input",
-                  "ofType": null
-                },
-                "defaultValue": null
-              },
               {
                 "name": "_set",
                 "description": "sets the columns of the filtered rows to the given values",
                 "type": {
                   "kind": "INPUT_OBJECT",
-                  "name": "author_set_input",
+                  "name": "images_set_input",
                   "ofType": null
                 },
                 "defaultValue": null
@@ -3183,7 +2780,7 @@
                   "name": null,
                   "ofType": {
                     "kind": "INPUT_OBJECT",
-                    "name": "author_bool_exp",
+                    "name": "images_bool_exp",
                     "ofType": null
                   }
                 },
@@ -3192,32 +2789,22 @@
             ],
             "type": {
               "kind": "OBJECT",
-              "name": "author_mutation_response",
+              "name": "images_mutation_response",
               "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
-            "name": "update_author_by_pk",
-            "description": "update single row of the table: \"author\"",
+            "name": "update_images_by_pk",
+            "description": "update single row of the table: \"images\"",
             "args": [
-              {
-                "name": "_inc",
-                "description": "increments the integer columns with given value of the filtered values",
-                "type": {
-                  "kind": "INPUT_OBJECT",
-                  "name": "author_inc_input",
-                  "ofType": null
-                },
-                "defaultValue": null
-              },
               {
                 "name": "_set",
                 "description": "sets the columns of the filtered rows to the given values",
                 "type": {
                   "kind": "INPUT_OBJECT",
-                  "name": "author_set_input",
+                  "name": "images_set_input",
                   "ofType": null
                 },
                 "defaultValue": null
@@ -3230,7 +2817,7 @@
                   "name": null,
                   "ofType": {
                     "kind": "INPUT_OBJECT",
-                    "name": "author_pk_columns_input",
+                    "name": "images_pk_columns_input",
                     "ofType": null
                   }
                 },
@@ -3239,22 +2826,22 @@
             ],
             "type": {
               "kind": "OBJECT",
-              "name": "author",
+              "name": "images",
               "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
-            "name": "update_product",
-            "description": "update data of the table: \"product\"",
+            "name": "update_products",
+            "description": "update data of the table: \"products\"",
             "args": [
               {
                 "name": "_inc",
                 "description": "increments the integer columns with given value of the filtered values",
                 "type": {
                   "kind": "INPUT_OBJECT",
-                  "name": "product_inc_input",
+                  "name": "products_inc_input",
                   "ofType": null
                 },
                 "defaultValue": null
@@ -3264,7 +2851,7 @@
                 "description": "sets the columns of the filtered rows to the given values",
                 "type": {
                   "kind": "INPUT_OBJECT",
-                  "name": "product_set_input",
+                  "name": "products_set_input",
                   "ofType": null
                 },
                 "defaultValue": null
@@ -3277,7 +2864,7 @@
                   "name": null,
                   "ofType": {
                     "kind": "INPUT_OBJECT",
-                    "name": "product_bool_exp",
+                    "name": "products_bool_exp",
                     "ofType": null
                   }
                 },
@@ -3286,22 +2873,22 @@
             ],
             "type": {
               "kind": "OBJECT",
-              "name": "product_mutation_response",
+              "name": "products_mutation_response",
               "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
-            "name": "update_product_by_pk",
-            "description": "update single row of the table: \"product\"",
+            "name": "update_products_by_pk",
+            "description": "update single row of the table: \"products\"",
             "args": [
               {
                 "name": "_inc",
                 "description": "increments the integer columns with given value of the filtered values",
                 "type": {
                   "kind": "INPUT_OBJECT",
-                  "name": "product_inc_input",
+                  "name": "products_inc_input",
                   "ofType": null
                 },
                 "defaultValue": null
@@ -3311,7 +2898,7 @@
                 "description": "sets the columns of the filtered rows to the given values",
                 "type": {
                   "kind": "INPUT_OBJECT",
-                  "name": "product_set_input",
+                  "name": "products_set_input",
                   "ofType": null
                 },
                 "defaultValue": null
@@ -3324,7 +2911,7 @@
                   "name": null,
                   "ofType": {
                     "kind": "INPUT_OBJECT",
-                    "name": "product_pk_columns_input",
+                    "name": "products_pk_columns_input",
                     "ofType": null
                   }
                 },
@@ -3333,7 +2920,7 @@
             ],
             "type": {
               "kind": "OBJECT",
-              "name": "product",
+              "name": "products",
               "ofType": null
             },
             "isDeprecated": false,
@@ -3347,8 +2934,8 @@
       },
       {
         "kind": "OBJECT",
-        "name": "author_mutation_response",
-        "description": "response of any mutation on the table \"author\"",
+        "name": "images_mutation_response",
+        "description": "response of any mutation on the table \"images\"",
         "fields": [
           {
             "name": "affected_rows",
@@ -3381,7 +2968,7 @@
                   "name": null,
                   "ofType": {
                     "kind": "OBJECT",
-                    "name": "author",
+                    "name": "images",
                     "ofType": null
                   }
                 }
@@ -3398,8 +2985,8 @@
       },
       {
         "kind": "OBJECT",
-        "name": "product_mutation_response",
-        "description": "response of any mutation on the table \"product\"",
+        "name": "products_mutation_response",
+        "description": "response of any mutation on the table \"products\"",
         "fields": [
           {
             "name": "affected_rows",
@@ -3432,7 +3019,7 @@
                   "name": null,
                   "ofType": {
                     "kind": "OBJECT",
-                    "name": "product",
+                    "name": "products",
                     "ofType": null
                   }
                 }
@@ -3449,8 +3036,8 @@
       },
       {
         "kind": "INPUT_OBJECT",
-        "name": "author_insert_input",
-        "description": "input type for inserting data into table \"author\"",
+        "name": "images_insert_input",
+        "description": "input type for inserting data into table \"images\"",
         "fields": null,
         "inputFields": [
           {
@@ -3458,13 +3045,23 @@
             "description": null,
             "type": {
               "kind": "SCALAR",
-              "name": "Int",
+              "name": "uuid",
               "ofType": null
             },
             "defaultValue": null
           },
           {
-            "name": "name",
+            "name": "product_id",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "uuid",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "s3_url",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -3480,8 +3077,8 @@
       },
       {
         "kind": "INPUT_OBJECT",
-        "name": "author_on_conflict",
-        "description": "on conflict condition type for table \"author\"",
+        "name": "images_on_conflict",
+        "description": "on conflict condition type for table \"images\"",
         "fields": null,
         "inputFields": [
           {
@@ -3492,7 +3089,7 @@
               "name": null,
               "ofType": {
                 "kind": "ENUM",
-                "name": "author_constraint",
+                "name": "images_constraint",
                 "ofType": null
               }
             },
@@ -3512,7 +3109,7 @@
                   "name": null,
                   "ofType": {
                     "kind": "ENUM",
-                    "name": "author_update_column",
+                    "name": "images_update_column",
                     "ofType": null
                   }
                 }
@@ -3525,7 +3122,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "author_bool_exp",
+              "name": "images_bool_exp",
               "ofType": null
             },
             "defaultValue": null
@@ -3537,14 +3134,20 @@
       },
       {
         "kind": "ENUM",
-        "name": "author_constraint",
-        "description": "unique or primary key constraints on table \"author\"",
+        "name": "images_constraint",
+        "description": "unique or primary key constraints on table \"images\"",
         "fields": null,
         "inputFields": null,
         "interfaces": null,
         "enumValues": [
           {
-            "name": "author_pkey",
+            "name": "images_pkey",
+            "description": "unique or primary key constraint",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "images_product_id_key",
             "description": "unique or primary key constraint",
             "isDeprecated": false,
             "deprecationReason": null
@@ -3554,8 +3157,8 @@
       },
       {
         "kind": "ENUM",
-        "name": "author_update_column",
-        "description": "update columns of table \"author\"",
+        "name": "images_update_column",
+        "description": "update columns of table \"images\"",
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -3567,7 +3170,13 @@
             "deprecationReason": null
           },
           {
-            "name": "name",
+            "name": "product_id",
+            "description": "column name",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "s3_url",
             "description": "column name",
             "isDeprecated": false,
             "deprecationReason": null
@@ -3577,8 +3186,8 @@
       },
       {
         "kind": "INPUT_OBJECT",
-        "name": "product_insert_input",
-        "description": "input type for inserting data into table \"product\"",
+        "name": "products_insert_input",
+        "description": "input type for inserting data into table \"products\"",
         "fields": null,
         "inputFields": [
           {
@@ -3622,16 +3231,6 @@
             "defaultValue": null
           },
           {
-            "name": "s3_url",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
             "name": "sold",
             "description": null,
             "type": {
@@ -3658,8 +3257,8 @@
       },
       {
         "kind": "INPUT_OBJECT",
-        "name": "product_on_conflict",
-        "description": "on conflict condition type for table \"product\"",
+        "name": "products_on_conflict",
+        "description": "on conflict condition type for table \"products\"",
         "fields": null,
         "inputFields": [
           {
@@ -3670,7 +3269,7 @@
               "name": null,
               "ofType": {
                 "kind": "ENUM",
-                "name": "product_constraint",
+                "name": "products_constraint",
                 "ofType": null
               }
             },
@@ -3690,7 +3289,7 @@
                   "name": null,
                   "ofType": {
                     "kind": "ENUM",
-                    "name": "product_update_column",
+                    "name": "products_update_column",
                     "ofType": null
                   }
                 }
@@ -3703,7 +3302,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "product_bool_exp",
+              "name": "products_bool_exp",
               "ofType": null
             },
             "defaultValue": null
@@ -3715,8 +3314,8 @@
       },
       {
         "kind": "ENUM",
-        "name": "product_constraint",
-        "description": "unique or primary key constraints on table \"product\"",
+        "name": "products_constraint",
+        "description": "unique or primary key constraints on table \"products\"",
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -3732,8 +3331,8 @@
       },
       {
         "kind": "ENUM",
-        "name": "product_update_column",
-        "description": "update columns of table \"product\"",
+        "name": "products_update_column",
+        "description": "update columns of table \"products\"",
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -3763,12 +3362,6 @@
             "deprecationReason": null
           },
           {
-            "name": "s3_url",
-            "description": "column name",
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "sold",
             "description": "column name",
             "isDeprecated": false,
@@ -3785,8 +3378,8 @@
       },
       {
         "kind": "INPUT_OBJECT",
-        "name": "author_inc_input",
-        "description": "input type for incrementing integer column in table \"author\"",
+        "name": "images_set_input",
+        "description": "input type for updating data in table \"images\"",
         "fields": null,
         "inputFields": [
           {
@@ -3794,34 +3387,23 @@
             "description": null,
             "type": {
               "kind": "SCALAR",
-              "name": "Int",
-              "ofType": null
-            },
-            "defaultValue": null
-          }
-        ],
-        "interfaces": null,
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "INPUT_OBJECT",
-        "name": "author_set_input",
-        "description": "input type for updating data in table \"author\"",
-        "fields": null,
-        "inputFields": [
-          {
-            "name": "id",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "Int",
+              "name": "uuid",
               "ofType": null
             },
             "defaultValue": null
           },
           {
-            "name": "name",
+            "name": "product_id",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "uuid",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "s3_url",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -3837,8 +3419,8 @@
       },
       {
         "kind": "INPUT_OBJECT",
-        "name": "author_pk_columns_input",
-        "description": "primary key columns input for table: \"author\"",
+        "name": "images_pk_columns_input",
+        "description": "primary key columns input for table: \"images\"",
         "fields": null,
         "inputFields": [
           {
@@ -3849,7 +3431,7 @@
               "name": null,
               "ofType": {
                 "kind": "SCALAR",
-                "name": "Int",
+                "name": "uuid",
                 "ofType": null
               }
             },
@@ -3862,8 +3444,8 @@
       },
       {
         "kind": "INPUT_OBJECT",
-        "name": "product_inc_input",
-        "description": "input type for incrementing integer column in table \"product\"",
+        "name": "products_inc_input",
+        "description": "input type for incrementing integer column in table \"products\"",
         "fields": null,
         "inputFields": [
           {
@@ -3883,8 +3465,8 @@
       },
       {
         "kind": "INPUT_OBJECT",
-        "name": "product_set_input",
-        "description": "input type for updating data in table \"product\"",
+        "name": "products_set_input",
+        "description": "input type for updating data in table \"products\"",
         "fields": null,
         "inputFields": [
           {
@@ -3928,16 +3510,6 @@
             "defaultValue": null
           },
           {
-            "name": "s3_url",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
             "name": "sold",
             "description": null,
             "type": {
@@ -3964,8 +3536,8 @@
       },
       {
         "kind": "INPUT_OBJECT",
-        "name": "product_pk_columns_input",
-        "description": "primary key columns input for table: \"product\"",
+        "name": "products_pk_columns_input",
+        "description": "primary key columns input for table: \"products\"",
         "fields": null,
         "inputFields": [
           {
@@ -3993,8 +3565,8 @@
         "description": "subscription root",
         "fields": [
           {
-            "name": "author",
-            "description": "fetch data from the table: \"author\"",
+            "name": "images",
+            "description": "fetch data from the table: \"images\"",
             "args": [
               {
                 "name": "distinct_on",
@@ -4007,7 +3579,7 @@
                     "name": null,
                     "ofType": {
                       "kind": "ENUM",
-                      "name": "author_select_column",
+                      "name": "images_select_column",
                       "ofType": null
                     }
                   }
@@ -4045,7 +3617,7 @@
                     "name": null,
                     "ofType": {
                       "kind": "INPUT_OBJECT",
-                      "name": "author_order_by",
+                      "name": "images_order_by",
                       "ofType": null
                     }
                   }
@@ -4057,7 +3629,7 @@
                 "description": "filter the rows returned",
                 "type": {
                   "kind": "INPUT_OBJECT",
-                  "name": "author_bool_exp",
+                  "name": "images_bool_exp",
                   "ofType": null
                 },
                 "defaultValue": null
@@ -4074,7 +3646,7 @@
                   "name": null,
                   "ofType": {
                     "kind": "OBJECT",
-                    "name": "author",
+                    "name": "images",
                     "ofType": null
                   }
                 }
@@ -4084,8 +3656,8 @@
             "deprecationReason": null
           },
           {
-            "name": "author_aggregate",
-            "description": "fetch aggregated fields from the table: \"author\"",
+            "name": "images_aggregate",
+            "description": "fetch aggregated fields from the table: \"images\"",
             "args": [
               {
                 "name": "distinct_on",
@@ -4098,7 +3670,7 @@
                     "name": null,
                     "ofType": {
                       "kind": "ENUM",
-                      "name": "author_select_column",
+                      "name": "images_select_column",
                       "ofType": null
                     }
                   }
@@ -4136,7 +3708,7 @@
                     "name": null,
                     "ofType": {
                       "kind": "INPUT_OBJECT",
-                      "name": "author_order_by",
+                      "name": "images_order_by",
                       "ofType": null
                     }
                   }
@@ -4148,7 +3720,7 @@
                 "description": "filter the rows returned",
                 "type": {
                   "kind": "INPUT_OBJECT",
-                  "name": "author_bool_exp",
+                  "name": "images_bool_exp",
                   "ofType": null
                 },
                 "defaultValue": null
@@ -4159,7 +3731,7 @@
               "name": null,
               "ofType": {
                 "kind": "OBJECT",
-                "name": "author_aggregate",
+                "name": "images_aggregate",
                 "ofType": null
               }
             },
@@ -4167,209 +3739,8 @@
             "deprecationReason": null
           },
           {
-            "name": "author_by_pk",
-            "description": "fetch data from the table: \"author\" using primary key columns",
-            "args": [
-              {
-                "name": "id",
-                "description": null,
-                "type": {
-                  "kind": "NON_NULL",
-                  "name": null,
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Int",
-                    "ofType": null
-                  }
-                },
-                "defaultValue": null
-              }
-            ],
-            "type": {
-              "kind": "OBJECT",
-              "name": "author",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "product",
-            "description": "fetch data from the table: \"product\"",
-            "args": [
-              {
-                "name": "distinct_on",
-                "description": "distinct select on columns",
-                "type": {
-                  "kind": "LIST",
-                  "name": null,
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "name": null,
-                    "ofType": {
-                      "kind": "ENUM",
-                      "name": "product_select_column",
-                      "ofType": null
-                    }
-                  }
-                },
-                "defaultValue": null
-              },
-              {
-                "name": "limit",
-                "description": "limit the number of rows returned",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Int",
-                  "ofType": null
-                },
-                "defaultValue": null
-              },
-              {
-                "name": "offset",
-                "description": "skip the first n rows. Use only with order_by",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Int",
-                  "ofType": null
-                },
-                "defaultValue": null
-              },
-              {
-                "name": "order_by",
-                "description": "sort the rows by one or more columns",
-                "type": {
-                  "kind": "LIST",
-                  "name": null,
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "name": null,
-                    "ofType": {
-                      "kind": "INPUT_OBJECT",
-                      "name": "product_order_by",
-                      "ofType": null
-                    }
-                  }
-                },
-                "defaultValue": null
-              },
-              {
-                "name": "where",
-                "description": "filter the rows returned",
-                "type": {
-                  "kind": "INPUT_OBJECT",
-                  "name": "product_bool_exp",
-                  "ofType": null
-                },
-                "defaultValue": null
-              }
-            ],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "LIST",
-                "name": null,
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "name": null,
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "product",
-                    "ofType": null
-                  }
-                }
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "product_aggregate",
-            "description": "fetch aggregated fields from the table: \"product\"",
-            "args": [
-              {
-                "name": "distinct_on",
-                "description": "distinct select on columns",
-                "type": {
-                  "kind": "LIST",
-                  "name": null,
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "name": null,
-                    "ofType": {
-                      "kind": "ENUM",
-                      "name": "product_select_column",
-                      "ofType": null
-                    }
-                  }
-                },
-                "defaultValue": null
-              },
-              {
-                "name": "limit",
-                "description": "limit the number of rows returned",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Int",
-                  "ofType": null
-                },
-                "defaultValue": null
-              },
-              {
-                "name": "offset",
-                "description": "skip the first n rows. Use only with order_by",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Int",
-                  "ofType": null
-                },
-                "defaultValue": null
-              },
-              {
-                "name": "order_by",
-                "description": "sort the rows by one or more columns",
-                "type": {
-                  "kind": "LIST",
-                  "name": null,
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "name": null,
-                    "ofType": {
-                      "kind": "INPUT_OBJECT",
-                      "name": "product_order_by",
-                      "ofType": null
-                    }
-                  }
-                },
-                "defaultValue": null
-              },
-              {
-                "name": "where",
-                "description": "filter the rows returned",
-                "type": {
-                  "kind": "INPUT_OBJECT",
-                  "name": "product_bool_exp",
-                  "ofType": null
-                },
-                "defaultValue": null
-              }
-            ],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "product_aggregate",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "product_by_pk",
-            "description": "fetch data from the table: \"product\" using primary key columns",
+            "name": "images_by_pk",
+            "description": "fetch data from the table: \"images\" using primary key columns",
             "args": [
               {
                 "name": "id",
@@ -4388,7 +3759,208 @@
             ],
             "type": {
               "kind": "OBJECT",
-              "name": "product",
+              "name": "images",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "products",
+            "description": "fetch data from the table: \"products\"",
+            "args": [
+              {
+                "name": "distinct_on",
+                "description": "distinct select on columns",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "ENUM",
+                      "name": "products_select_column",
+                      "ofType": null
+                    }
+                  }
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "limit",
+                "description": "limit the number of rows returned",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "offset",
+                "description": "skip the first n rows. Use only with order_by",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "order_by",
+                "description": "sort the rows by one or more columns",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "products_order_by",
+                      "ofType": null
+                    }
+                  }
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "where",
+                "description": "filter the rows returned",
+                "type": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "products_bool_exp",
+                  "ofType": null
+                },
+                "defaultValue": null
+              }
+            ],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "products",
+                    "ofType": null
+                  }
+                }
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "products_aggregate",
+            "description": "fetch aggregated fields from the table: \"products\"",
+            "args": [
+              {
+                "name": "distinct_on",
+                "description": "distinct select on columns",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "ENUM",
+                      "name": "products_select_column",
+                      "ofType": null
+                    }
+                  }
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "limit",
+                "description": "limit the number of rows returned",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "offset",
+                "description": "skip the first n rows. Use only with order_by",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "order_by",
+                "description": "sort the rows by one or more columns",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "products_order_by",
+                      "ofType": null
+                    }
+                  }
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "where",
+                "description": "filter the rows returned",
+                "type": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "products_bool_exp",
+                  "ofType": null
+                },
+                "defaultValue": null
+              }
+            ],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "products_aggregate",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "products_by_pk",
+            "description": "fetch data from the table: \"products\" using primary key columns",
+            "args": [
+              {
+                "name": "id",
+                "description": null,
+                "type": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "uuid",
+                    "ofType": null
+                  }
+                },
+                "defaultValue": null
+              }
+            ],
+            "type": {
+              "kind": "OBJECT",
+              "name": "products",
               "ofType": null
             },
             "isDeprecated": false,
@@ -5198,20 +4770,10 @@
       },
       {
         "kind": "INPUT_OBJECT",
-        "name": "author_aggregate_order_by",
-        "description": "order by aggregate values of table \"author\"",
+        "name": "images_aggregate_order_by",
+        "description": "order by aggregate values of table \"images\"",
         "fields": null,
         "inputFields": [
-          {
-            "name": "avg",
-            "description": null,
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "author_avg_order_by",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
           {
             "name": "count",
             "description": null,
@@ -5227,7 +4789,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "author_max_order_by",
+              "name": "images_max_order_by",
               "ofType": null
             },
             "defaultValue": null
@@ -5237,77 +4799,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "author_min_order_by",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "stddev",
-            "description": null,
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "author_stddev_order_by",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "stddev_pop",
-            "description": null,
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "author_stddev_pop_order_by",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "stddev_samp",
-            "description": null,
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "author_stddev_samp_order_by",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "sum",
-            "description": null,
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "author_sum_order_by",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "var_pop",
-            "description": null,
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "author_var_pop_order_by",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "var_samp",
-            "description": null,
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "author_var_samp_order_by",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "variance",
-            "description": null,
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "author_variance_order_by",
+              "name": "images_min_order_by",
               "ofType": null
             },
             "defaultValue": null
@@ -5319,29 +4811,8 @@
       },
       {
         "kind": "INPUT_OBJECT",
-        "name": "author_avg_order_by",
-        "description": "order by avg() on columns of table \"author\"",
-        "fields": null,
-        "inputFields": [
-          {
-            "name": "id",
-            "description": null,
-            "type": {
-              "kind": "ENUM",
-              "name": "order_by",
-              "ofType": null
-            },
-            "defaultValue": null
-          }
-        ],
-        "interfaces": null,
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "INPUT_OBJECT",
-        "name": "author_max_order_by",
-        "description": "order by max() on columns of table \"author\"",
+        "name": "images_max_order_by",
+        "description": "order by max() on columns of table \"images\"",
         "fields": null,
         "inputFields": [
           {
@@ -5355,7 +4826,17 @@
             "defaultValue": null
           },
           {
-            "name": "name",
+            "name": "product_id",
+            "description": null,
+            "type": {
+              "kind": "ENUM",
+              "name": "order_by",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "s3_url",
             "description": null,
             "type": {
               "kind": "ENUM",
@@ -5371,8 +4852,8 @@
       },
       {
         "kind": "INPUT_OBJECT",
-        "name": "author_min_order_by",
-        "description": "order by min() on columns of table \"author\"",
+        "name": "images_min_order_by",
+        "description": "order by min() on columns of table \"images\"",
         "fields": null,
         "inputFields": [
           {
@@ -5386,7 +4867,7 @@
             "defaultValue": null
           },
           {
-            "name": "name",
+            "name": "product_id",
             "description": null,
             "type": {
               "kind": "ENUM",
@@ -5394,20 +4875,9 @@
               "ofType": null
             },
             "defaultValue": null
-          }
-        ],
-        "interfaces": null,
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "INPUT_OBJECT",
-        "name": "author_stddev_order_by",
-        "description": "order by stddev() on columns of table \"author\"",
-        "fields": null,
-        "inputFields": [
+          },
           {
-            "name": "id",
+            "name": "s3_url",
             "description": null,
             "type": {
               "kind": "ENUM",
@@ -5423,134 +4893,8 @@
       },
       {
         "kind": "INPUT_OBJECT",
-        "name": "author_stddev_pop_order_by",
-        "description": "order by stddev_pop() on columns of table \"author\"",
-        "fields": null,
-        "inputFields": [
-          {
-            "name": "id",
-            "description": null,
-            "type": {
-              "kind": "ENUM",
-              "name": "order_by",
-              "ofType": null
-            },
-            "defaultValue": null
-          }
-        ],
-        "interfaces": null,
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "INPUT_OBJECT",
-        "name": "author_stddev_samp_order_by",
-        "description": "order by stddev_samp() on columns of table \"author\"",
-        "fields": null,
-        "inputFields": [
-          {
-            "name": "id",
-            "description": null,
-            "type": {
-              "kind": "ENUM",
-              "name": "order_by",
-              "ofType": null
-            },
-            "defaultValue": null
-          }
-        ],
-        "interfaces": null,
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "INPUT_OBJECT",
-        "name": "author_sum_order_by",
-        "description": "order by sum() on columns of table \"author\"",
-        "fields": null,
-        "inputFields": [
-          {
-            "name": "id",
-            "description": null,
-            "type": {
-              "kind": "ENUM",
-              "name": "order_by",
-              "ofType": null
-            },
-            "defaultValue": null
-          }
-        ],
-        "interfaces": null,
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "INPUT_OBJECT",
-        "name": "author_var_pop_order_by",
-        "description": "order by var_pop() on columns of table \"author\"",
-        "fields": null,
-        "inputFields": [
-          {
-            "name": "id",
-            "description": null,
-            "type": {
-              "kind": "ENUM",
-              "name": "order_by",
-              "ofType": null
-            },
-            "defaultValue": null
-          }
-        ],
-        "interfaces": null,
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "INPUT_OBJECT",
-        "name": "author_var_samp_order_by",
-        "description": "order by var_samp() on columns of table \"author\"",
-        "fields": null,
-        "inputFields": [
-          {
-            "name": "id",
-            "description": null,
-            "type": {
-              "kind": "ENUM",
-              "name": "order_by",
-              "ofType": null
-            },
-            "defaultValue": null
-          }
-        ],
-        "interfaces": null,
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "INPUT_OBJECT",
-        "name": "author_variance_order_by",
-        "description": "order by variance() on columns of table \"author\"",
-        "fields": null,
-        "inputFields": [
-          {
-            "name": "id",
-            "description": null,
-            "type": {
-              "kind": "ENUM",
-              "name": "order_by",
-              "ofType": null
-            },
-            "defaultValue": null
-          }
-        ],
-        "interfaces": null,
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "INPUT_OBJECT",
-        "name": "author_arr_rel_insert_input",
-        "description": "input type for inserting array relation for remote table \"author\"",
+        "name": "images_arr_rel_insert_input",
+        "description": "input type for inserting array relation for remote table \"images\"",
         "fields": null,
         "inputFields": [
           {
@@ -5567,7 +4911,7 @@
                   "name": null,
                   "ofType": {
                     "kind": "INPUT_OBJECT",
-                    "name": "author_insert_input",
+                    "name": "images_insert_input",
                     "ofType": null
                   }
                 }
@@ -5580,7 +4924,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "author_on_conflict",
+              "name": "images_on_conflict",
               "ofType": null
             },
             "defaultValue": null
@@ -5592,8 +4936,8 @@
       },
       {
         "kind": "INPUT_OBJECT",
-        "name": "author_obj_rel_insert_input",
-        "description": "input type for inserting object relation for remote table \"author\"",
+        "name": "images_obj_rel_insert_input",
+        "description": "input type for inserting object relation for remote table \"images\"",
         "fields": null,
         "inputFields": [
           {
@@ -5604,7 +4948,7 @@
               "name": null,
               "ofType": {
                 "kind": "INPUT_OBJECT",
-                "name": "author_insert_input",
+                "name": "images_insert_input",
                 "ofType": null
               }
             },
@@ -5615,7 +4959,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "author_on_conflict",
+              "name": "images_on_conflict",
               "ofType": null
             },
             "defaultValue": null
@@ -5627,8 +4971,8 @@
       },
       {
         "kind": "INPUT_OBJECT",
-        "name": "product_aggregate_order_by",
-        "description": "order by aggregate values of table \"product\"",
+        "name": "products_aggregate_order_by",
+        "description": "order by aggregate values of table \"products\"",
         "fields": null,
         "inputFields": [
           {
@@ -5636,7 +4980,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "product_avg_order_by",
+              "name": "products_avg_order_by",
               "ofType": null
             },
             "defaultValue": null
@@ -5656,7 +5000,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "product_max_order_by",
+              "name": "products_max_order_by",
               "ofType": null
             },
             "defaultValue": null
@@ -5666,7 +5010,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "product_min_order_by",
+              "name": "products_min_order_by",
               "ofType": null
             },
             "defaultValue": null
@@ -5676,7 +5020,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "product_stddev_order_by",
+              "name": "products_stddev_order_by",
               "ofType": null
             },
             "defaultValue": null
@@ -5686,7 +5030,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "product_stddev_pop_order_by",
+              "name": "products_stddev_pop_order_by",
               "ofType": null
             },
             "defaultValue": null
@@ -5696,7 +5040,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "product_stddev_samp_order_by",
+              "name": "products_stddev_samp_order_by",
               "ofType": null
             },
             "defaultValue": null
@@ -5706,7 +5050,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "product_sum_order_by",
+              "name": "products_sum_order_by",
               "ofType": null
             },
             "defaultValue": null
@@ -5716,7 +5060,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "product_var_pop_order_by",
+              "name": "products_var_pop_order_by",
               "ofType": null
             },
             "defaultValue": null
@@ -5726,7 +5070,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "product_var_samp_order_by",
+              "name": "products_var_samp_order_by",
               "ofType": null
             },
             "defaultValue": null
@@ -5736,7 +5080,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "product_variance_order_by",
+              "name": "products_variance_order_by",
               "ofType": null
             },
             "defaultValue": null
@@ -5748,8 +5092,8 @@
       },
       {
         "kind": "INPUT_OBJECT",
-        "name": "product_avg_order_by",
-        "description": "order by avg() on columns of table \"product\"",
+        "name": "products_avg_order_by",
+        "description": "order by avg() on columns of table \"products\"",
         "fields": null,
         "inputFields": [
           {
@@ -5769,8 +5113,8 @@
       },
       {
         "kind": "INPUT_OBJECT",
-        "name": "product_max_order_by",
-        "description": "order by max() on columns of table \"product\"",
+        "name": "products_max_order_by",
+        "description": "order by max() on columns of table \"products\"",
         "fields": null,
         "inputFields": [
           {
@@ -5814,16 +5158,6 @@
             "defaultValue": null
           },
           {
-            "name": "s3_url",
-            "description": null,
-            "type": {
-              "kind": "ENUM",
-              "name": "order_by",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
             "name": "title",
             "description": null,
             "type": {
@@ -5840,8 +5174,8 @@
       },
       {
         "kind": "INPUT_OBJECT",
-        "name": "product_min_order_by",
-        "description": "order by min() on columns of table \"product\"",
+        "name": "products_min_order_by",
+        "description": "order by min() on columns of table \"products\"",
         "fields": null,
         "inputFields": [
           {
@@ -5885,16 +5219,6 @@
             "defaultValue": null
           },
           {
-            "name": "s3_url",
-            "description": null,
-            "type": {
-              "kind": "ENUM",
-              "name": "order_by",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
             "name": "title",
             "description": null,
             "type": {
@@ -5911,8 +5235,8 @@
       },
       {
         "kind": "INPUT_OBJECT",
-        "name": "product_stddev_order_by",
-        "description": "order by stddev() on columns of table \"product\"",
+        "name": "products_stddev_order_by",
+        "description": "order by stddev() on columns of table \"products\"",
         "fields": null,
         "inputFields": [
           {
@@ -5932,8 +5256,8 @@
       },
       {
         "kind": "INPUT_OBJECT",
-        "name": "product_stddev_pop_order_by",
-        "description": "order by stddev_pop() on columns of table \"product\"",
+        "name": "products_stddev_pop_order_by",
+        "description": "order by stddev_pop() on columns of table \"products\"",
         "fields": null,
         "inputFields": [
           {
@@ -5953,8 +5277,8 @@
       },
       {
         "kind": "INPUT_OBJECT",
-        "name": "product_stddev_samp_order_by",
-        "description": "order by stddev_samp() on columns of table \"product\"",
+        "name": "products_stddev_samp_order_by",
+        "description": "order by stddev_samp() on columns of table \"products\"",
         "fields": null,
         "inputFields": [
           {
@@ -5974,8 +5298,8 @@
       },
       {
         "kind": "INPUT_OBJECT",
-        "name": "product_sum_order_by",
-        "description": "order by sum() on columns of table \"product\"",
+        "name": "products_sum_order_by",
+        "description": "order by sum() on columns of table \"products\"",
         "fields": null,
         "inputFields": [
           {
@@ -5995,8 +5319,8 @@
       },
       {
         "kind": "INPUT_OBJECT",
-        "name": "product_var_pop_order_by",
-        "description": "order by var_pop() on columns of table \"product\"",
+        "name": "products_var_pop_order_by",
+        "description": "order by var_pop() on columns of table \"products\"",
         "fields": null,
         "inputFields": [
           {
@@ -6016,8 +5340,8 @@
       },
       {
         "kind": "INPUT_OBJECT",
-        "name": "product_var_samp_order_by",
-        "description": "order by var_samp() on columns of table \"product\"",
+        "name": "products_var_samp_order_by",
+        "description": "order by var_samp() on columns of table \"products\"",
         "fields": null,
         "inputFields": [
           {
@@ -6037,8 +5361,8 @@
       },
       {
         "kind": "INPUT_OBJECT",
-        "name": "product_variance_order_by",
-        "description": "order by variance() on columns of table \"product\"",
+        "name": "products_variance_order_by",
+        "description": "order by variance() on columns of table \"products\"",
         "fields": null,
         "inputFields": [
           {
@@ -6058,8 +5382,8 @@
       },
       {
         "kind": "INPUT_OBJECT",
-        "name": "product_arr_rel_insert_input",
-        "description": "input type for inserting array relation for remote table \"product\"",
+        "name": "products_arr_rel_insert_input",
+        "description": "input type for inserting array relation for remote table \"products\"",
         "fields": null,
         "inputFields": [
           {
@@ -6076,7 +5400,7 @@
                   "name": null,
                   "ofType": {
                     "kind": "INPUT_OBJECT",
-                    "name": "product_insert_input",
+                    "name": "products_insert_input",
                     "ofType": null
                   }
                 }
@@ -6089,7 +5413,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "product_on_conflict",
+              "name": "products_on_conflict",
               "ofType": null
             },
             "defaultValue": null
@@ -6101,8 +5425,8 @@
       },
       {
         "kind": "INPUT_OBJECT",
-        "name": "product_obj_rel_insert_input",
-        "description": "input type for inserting object relation for remote table \"product\"",
+        "name": "products_obj_rel_insert_input",
+        "description": "input type for inserting object relation for remote table \"products\"",
         "fields": null,
         "inputFields": [
           {
@@ -6113,7 +5437,7 @@
               "name": null,
               "ofType": {
                 "kind": "INPUT_OBJECT",
-                "name": "product_insert_input",
+                "name": "products_insert_input",
                 "ofType": null
               }
             },
@@ -6124,7 +5448,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "product_on_conflict",
+              "name": "products_on_conflict",
               "ofType": null
             },
             "defaultValue": null

@@ -30,6 +30,10 @@ const Upload = () => {
     const uuid = uuidv4();
     const fileName = encodeURIComponent(uuid) + "." + file.type.split("/")[1];
 
+    urls.forEach(x => {
+      console.log(x)
+    })
+
     const res = await fetch(`/api/upload-url?file=${fileName}`);
     const { url, fields } = await res.json();
 
@@ -48,12 +52,12 @@ const Upload = () => {
 
     if (upload.ok) {
       //Add ref to DB
-      addProduct({
-        variables: {
-          title: "newfile",
-          url: `https://d2jmaluif1rg1w.cloudfront.net/${fields.key}`,
-        },
-      });
+      // addProduct({
+      //   variables: {
+      //     title: "newfile",
+      //     url: `https://d2jmaluif1rg1w.cloudfront.net/${fields.key}`,
+      //   },
+      // });
     } else {
       console.error("Upload failed.");
     }
@@ -63,7 +67,7 @@ const Upload = () => {
     <Layout title="NoPallets - upload">
       <form>
         <p>Title</p>
-        <input type="text" />
+        <input type="text" style={{ border: "1px solid green" }} />
         <p>Upload a .png or .jpg image (max 1MB).</p>
         <input
           onChange={uploadPhoto}

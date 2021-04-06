@@ -5,8 +5,6 @@ import { AddProduct, AddImage } from "../../graphql/mutations";
 import {
   AddProductMutation,
   AddProductMutationVariables,
-  AddImageMutation,
-  AddImageMutationVariables,
 } from "../../graphql/generated/graphql";
 import Layout from "../layout/Layout";
 
@@ -18,15 +16,9 @@ const Upload = () => {
     AddProductMutationVariables
   >(AddProduct);
 
-  const [addImage] = useMutation<AddImageMutation, AddImageMutationVariables>(
-    AddImage
-  );
-
   const uploadPhoto = async (e: ChangeEvent<HTMLInputElement>) => {
     const files = Array.from(e.target.files);
     setImages([...images, ...files]);
-
-    const file = e.target.files[0];
 
     var promises = [];
     files.forEach((file) => {
@@ -36,30 +28,38 @@ const Upload = () => {
       promises.push(promise);
     });
 
-    const res = await Promise.all(promises);
+    const responses = await Promise.all(promises);
 
-    for (const x of res) {
-      const { url, fields } = await x.json();
+    var uploads = [];
+    var urls = [];
+
+    for (let i = 0; i < responses.length; i++) {
+      const { url, fields } = await responses[i].json();
+      urls.push(`https://d2jmaluif1rg1w.cloudfront.net/${fields.key}`);
+      const file = files[i];
       const formData = new FormData();
       Object.entries<string | File>({ ...fields, file }).forEach(
         ([key, value]) => {
           formData.append(key, value);
         }
       );
-      const upload = await fetch(url, {
+      const upload = fetch(url, {
         method: "POST",
         body: formData,
       });
+      uploads.push(upload);
     }
 
-    if (true) {
-      //Add ref to DB
-      // addProduct({
-      //   variables: {
-      //     title: "newfile",
-      //     url: `https://d2jmaluif1rg1w.cloudfront.net/${fields.key}`,
-      //   },
-      // });
+    const status = (await Promise.all(uploads)).every((x) => x.ok === true);
+
+    if (status) {
+      // Add ref to DB
+      addProduct({
+        variables: {
+          title: "newfile",
+          images: [...urls],
+        },
+      });
     } else {
       console.error("Upload failed.");
     }

@@ -52,7 +52,6 @@ const Upload = () => {
       });
     }
 
-    // if (upload.ok) {
     if (true) {
       //Add ref to DB
       // addProduct({

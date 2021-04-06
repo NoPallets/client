@@ -23,34 +23,37 @@ const Upload = () => {
   );
 
   const uploadPhoto = async (e: ChangeEvent<HTMLInputElement>) => {
-    const urls = Array.from(e.target.files);
-    setImages([...images, ...urls]);
+    const files = Array.from(e.target.files);
+    setImages([...images, ...files]);
 
     const file = e.target.files[0];
-    const uuid = uuidv4();
-    const fileName = encodeURIComponent(uuid) + "." + file.type.split("/")[1];
 
-    urls.forEach(x => {
-      console.log(x)
-    })
-
-    const res = await fetch(`/api/upload-url?file=${fileName}`);
-    const { url, fields } = await res.json();
-
-    const formData = new FormData();
-
-    Object.entries<string | File>({ ...fields, file }).forEach(
-      ([key, value]) => {
-        formData.append(key, value);
-      }
-    );
-
-    const upload = await fetch(url, {
-      method: "POST",
-      body: formData,
+    var promises = [];
+    files.forEach((file) => {
+      const uuid = uuidv4();
+      const fileName = encodeURIComponent(uuid) + "." + file.type.split("/")[1];
+      const promise = fetch(`/api/upload-url?file=${fileName}`);
+      promises.push(promise);
     });
 
-    if (upload.ok) {
+    const res = await Promise.all(promises);
+
+    for (const x of res) {
+      const { url, fields } = await x.json();
+      const formData = new FormData();
+      Object.entries<string | File>({ ...fields, file }).forEach(
+        ([key, value]) => {
+          formData.append(key, value);
+        }
+      );
+      const upload = await fetch(url, {
+        method: "POST",
+        body: formData,
+      });
+    }
+
+    // if (upload.ok) {
+    if (true) {
       //Add ref to DB
       // addProduct({
       //   variables: {

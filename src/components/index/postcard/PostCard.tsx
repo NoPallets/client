@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { Products } from "../../../graphql/generated/graphql";
 import styles from "./PostCard.module.css";
 
@@ -15,12 +16,14 @@ const PostCard = ({ product }: Props) => {
         {product.title}
       </span>
       <div className="hover:opacity-30 cursor-pointer">
-        <Image
-          src={product.images[0]}
-          width={450}
-          height={450}
-          objectFit="cover"
-        />
+        <Link href={`/product/${product.id}`}>
+          <Image
+            src={product.images[0]}
+            width={450}
+            height={450}
+            objectFit="cover"
+          />
+        </Link>
       </div>
     </div>
   );

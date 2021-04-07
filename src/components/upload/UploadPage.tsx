@@ -10,6 +10,8 @@ import Layout from "../layout/Layout";
 
 const Upload = () => {
   const [images, setImages] = useState([]);
+  const [title, setTitle] = useState("");
+  const [price, setPrice] = useState(0);
 
   const [addProduct] = useMutation<
     AddProductMutation,
@@ -20,7 +22,7 @@ const Upload = () => {
     const files = Array.from(e.target.files);
     setImages([...images, ...files]);
 
-    var promises = [];
+    let promises = [];
     files.forEach((file) => {
       const uuid = uuidv4();
       const fileName = encodeURIComponent(uuid) + "." + file.type.split("/")[1];
@@ -30,8 +32,8 @@ const Upload = () => {
 
     const responses = await Promise.all(promises);
 
-    var uploads = [];
-    var urls = [];
+    let uploads = [];
+    let urls = [];
 
     for (let i = 0; i < responses.length; i++) {
       const { url, fields } = await responses[i].json();
@@ -56,7 +58,8 @@ const Upload = () => {
       // Add ref to DB
       addProduct({
         variables: {
-          title: "newfile",
+          title: title,
+          price: price,
           images: [...urls],
         },
       });
@@ -68,8 +71,17 @@ const Upload = () => {
   return (
     <Layout title="NoPallets - upload">
       <form>
-        <p>Title</p>
-        <input type="text" style={{ border: "1px solid green" }} />
+        <label>Title</label>
+        <input
+          type="text"
+          style={{ border: "1px solid green" }}
+          onChange={(e) => setTitle(e.target.value)}
+        />
+        <label htmlFor="input"> Price</label>
+        <input
+          style={{ border: "1px solid green" }}
+          onChange={(e) => setPrice(Number(e.target.value))}
+        />
         <p>Upload a .png or .jpg image (max 1MB).</p>
         <input
           onChange={uploadPhoto}
@@ -90,7 +102,6 @@ const Upload = () => {
             );
           })}
         </div>
-        <input />
       </form>
     </Layout>
   );

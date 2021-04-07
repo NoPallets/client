@@ -1,9 +1,9 @@
 import Image from "next/image";
-import { Product } from "../../../graphql/generated/graphql";
+import { Products } from "../../../graphql/generated/graphql";
 import styles from "./PostCard.module.css";
 
 interface Props {
-  product: Product;
+  product: Products;
 }
 
 const PostCard = ({ product }: Props) => {
@@ -16,7 +16,7 @@ const PostCard = ({ product }: Props) => {
       </span>
       <div className="hover:opacity-30 cursor-pointer">
         <Image
-          src={product.s3_url}
+          src={product.images[0]}
           width={450}
           height={450}
           objectFit="cover"

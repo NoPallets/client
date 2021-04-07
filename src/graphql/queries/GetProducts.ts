@@ -9,6 +9,7 @@ const GetProducts = gql`
       sold
       title
       date
+      images
     }
   }
 `;

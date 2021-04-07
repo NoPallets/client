@@ -1,9 +1,9 @@
 import Layout from "../../components/layout/Layout";
-import { Product } from "../../graphql/generated/graphql";
+import { Products } from "../../graphql/generated/graphql";
 import PostCard from "./postcard/PostCard";
 
 interface Props {
-  products: Product[];
+  products: Products[];
 }
 
 const IndexPage = ({ products }: Props) => {

@@ -1,5 +1,4 @@
 import { GetStaticProps } from "next";
-
 import { initializeApollo } from "../lib/apolloClient";
 import { GetProducts } from "../graphql/queries";
 import { GetProductsQuery } from "../graphql/generated/graphql";
@@ -16,7 +15,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
   return {
     props: {
-      products: data.product,
+      products: data.products,
     },
     revalidate: 1,
   };

@@ -1,7 +1,7 @@
 import { useMutation } from "@apollo/client";
 import { v4 as uuidv4 } from "uuid";
 import { ChangeEvent, useState } from "react";
-import { AddProduct, AddImage } from "../../graphql/mutations";
+import { AddProduct } from "../../graphql/mutations";
 import {
   AddProductMutation,
   AddProductMutationVariables,

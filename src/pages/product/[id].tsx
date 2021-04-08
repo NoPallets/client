@@ -19,4 +19,5 @@ export const getStaticProps: GetStaticProps = async () => {
   };
 };
 
+//ToDo Add getStaticPaths
 export default Product;

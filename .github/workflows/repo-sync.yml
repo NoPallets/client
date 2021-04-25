@@ -8,7 +8,7 @@ jobs:
       - name: git-sync
         uses: wei/git-sync@v3
         with:
-          source_repo: "https://stanislavst:${{ secrets.SYNC_ACCESS_TOKEN }}@github.com/username/repository.git"
+          source_repo: "https://stanislavst:${{ secrets.SYNC_ACCESS_TOKEN }}@github.com/nopallets/client.git"
           source_branch: "master"
           destination_repo: "StanislavSt/NoPallets-client"
           destination_branch: "master"

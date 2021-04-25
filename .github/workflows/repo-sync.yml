@@ -12,4 +12,4 @@ jobs:
           source_branch: "master"
           destination_repo: "StanislavSt/NoPallets-client"
           destination_branch: "master"
-          ssh_private_key: ${{ secrets.SYNC_ACCESS_TOKEN }} # optional
+          ssh_private_key: ${{ secrets.SYNC_ACCESS_TOKEN }}

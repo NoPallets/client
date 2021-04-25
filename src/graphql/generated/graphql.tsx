@@ -653,7 +653,7 @@ export type GetProductQueryVariables = Exact<{
 
 export type GetProductQuery = (
   { __typename?: 'query_root' }
-  & { products: Array<(
+  & { products_by_pk?: Maybe<(
     { __typename?: 'products' }
     & Pick<Products, 'description' | 'id' | 'price' | 'sold' | 'title' | 'date' | 'images'>
   )> }
@@ -709,7 +709,7 @@ export type AddProductMutationResult = Apollo.MutationResult<AddProductMutation>
 export type AddProductMutationOptions = Apollo.BaseMutationOptions<AddProductMutation, AddProductMutationVariables>;
 export const GetProductDocument = gql`
     query GetProduct($id: uuid!) {
-  products(where: {id: {_eq: $id}}) {
+  products_by_pk(id: $id) {
     description
     id
     price

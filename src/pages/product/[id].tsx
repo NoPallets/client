@@ -1,23 +1,48 @@
-import Product from "../../components/product/IndexPage";
+import ProductPage from "../../components/product/ProductPage";
 import { initializeApollo } from "../../lib/apolloClient";
-import { GetProduct } from "../../graphql/queries";
-import { GetProductQuery } from "../../graphql/generated/graphql";
-import { GetStaticProps } from "next";
+import { GetProduct, GetProducts } from "../../graphql/queries";
+import {
+  GetProductQuery,
+  GetProductQueryVariables,
+  GetProductsQuery,
+} from "../../graphql/generated/graphql";
+import { GetStaticProps, GetStaticPaths } from "next";
 
-export const getStaticProps: GetStaticProps = async () => {
+export default ProductPage;
+
+export const getStaticProps: GetStaticProps = async ({ params }) => {
   const apolloClient = initializeApollo();
 
-  const { data } = await apolloClient.query<GetProductQuery>({
+  const { data } = await apolloClient.query<
+    GetProductQuery,
+    GetProductQueryVariables
+  >({
     query: GetProduct,
+    variables: {
+      id: params.id,
+    },
   });
 
   return {
     props: {
-      product: data.products,
+      product: data.products_by_pk,
     },
     revalidate: 1,
   };
 };
 
+export const getStaticPaths: GetStaticPaths = async () => {
+  const apolloClient = initializeApollo();
+
+  const { data } = await apolloClient.query<GetProductsQuery>({
+    query: GetProducts,
+  });
+
+  const paths = data.products.map((product) => `/product/${product.id}`);
+
+  return {
+    paths,
+    fallback: false,
+  };
+};
 //ToDo Add getStaticPaths
-export default Product;

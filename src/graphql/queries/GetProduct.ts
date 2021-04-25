@@ -2,7 +2,7 @@ import { gql } from "@apollo/client";
 
 const GetProduct = gql`
   query GetProduct($id: uuid!) {
-    products(where: { id: { _eq: $id } }) {
+    products_by_pk(id: $id) {
       description
       id
       price

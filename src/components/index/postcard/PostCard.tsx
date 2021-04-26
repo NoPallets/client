@@ -11,7 +11,7 @@ const PostCard = ({ product }: Props) => {
   return (
     <div className={`${styles.postCard} relative`}>
       <span
-        className={`${styles.title} absolute z-10 top-1/2 left-1/2 transform -translate-y-2/4 -translate-x-2/4`}
+        className={`${styles.title} absolute z-10 top-1/2 left-1/2 transform -translate-y-2/4 -translate-x-2/4 text-center`}
       >
         {product.title}
       </span>

@@ -11,7 +11,7 @@ const Nav = () => {
           <a className="cursor-pointer text-6xl text-bold ">NoPallets</a>
         </Link>
         <Link href="/contact">
-          <a className="cursor-pointer hover:opacity-50">ontact NP</a>
+          <a className="cursor-pointer hover:opacity-50">Contact NP</a>
         </Link>
       </div>
     </header>

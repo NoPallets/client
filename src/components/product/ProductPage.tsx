@@ -33,7 +33,6 @@ const ProductPage = ({ product }: Props) => {
               width={900}
               height={1250}
               objectFit="cover"
-              priority={index === 0}
             />
           </SwiperSlide>
         ))}

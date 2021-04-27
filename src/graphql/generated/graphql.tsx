@@ -637,12 +637,9 @@ export type AddProductMutationVariables = Exact<{
 
 export type AddProductMutation = (
   { __typename?: 'mutation_root' }
-  & { insert_products?: Maybe<(
-    { __typename?: 'products_mutation_response' }
-    & { returning: Array<(
-      { __typename?: 'products' }
-      & Pick<Products, 'id'>
-    )> }
+  & { insert_products_one?: Maybe<(
+    { __typename?: 'products' }
+    & Pick<Products, 'id'>
   )> }
 );
 
@@ -673,10 +670,8 @@ export type GetProductsQuery = (
 
 export const AddProductDocument = gql`
     mutation AddProduct($title: String!, $price: numeric!, $images: jsonb!) {
-  insert_products(objects: {title: $title, price: $price, images: $images}) {
-    returning {
-      id
-    }
+  insert_products_one(object: {title: $title, price: $price, images: $images}) {
+    id
   }
 }
     `;

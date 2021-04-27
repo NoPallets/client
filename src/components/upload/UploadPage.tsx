@@ -36,24 +36,20 @@ const Upload = () => {
     let urls = [];
 
     for (let i = 0; i < responses.length; i++) {
-      try {
-        const { url, fields } = await responses[i].json();
-        urls.push(`https://d2r71m37jt0r0z.cloudfront.net/${fields.key}`);
-        const file = files[i];
-        const formData = new FormData();
-        Object.entries<string | File>({ ...fields, file }).forEach(
-          ([key, value]) => {
-            formData.append(key, value);
-          }
-        );
-        const upload = await fetch(url, {
-          method: "POST",
-          body: formData,
-        });
-        uploads.push(upload);
-      } catch (e) {
-        console.log(e);
-      }
+      const { url, fields } = await responses[i].json();
+      urls.push(`https://d2r71m37jt0r0z.cloudfront.net/${fields.key}`);
+      const file = files[i];
+      const formData = new FormData();
+      Object.entries<string | File>({ ...fields, file }).forEach(
+        ([key, value]) => {
+          formData.append(key, value);
+        }
+      );
+      const upload = fetch(url, {
+        method: "POST",
+        body: formData,
+      });
+      uploads.push(upload);
     }
 
     const status = (await Promise.all(uploads)).every((x) => x.ok === true);

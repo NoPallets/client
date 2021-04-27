@@ -26,12 +26,17 @@ const ProductPage = ({ product }: Props) => {
         initialSlide={0}
         effect="fade"
       >
-        {product.images.map((img) => (
-          <SwiperSlide>
-            <Image src={img} width={900} height={1250} objectFit="cover" />
+        {product.images.map((img, index) => (
+          <SwiperSlide key={index}>
+            <Image
+              src={img}
+              width={900}
+              height={1250}
+              objectFit="cover"
+              priority={index === 0}
+            />
           </SwiperSlide>
         ))}
-        ...
       </Swiper>
     </Layout>
   );

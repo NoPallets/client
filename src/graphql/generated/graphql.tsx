@@ -175,6 +175,7 @@ export enum Order_By {
  */
 export type Products = {
   __typename?: 'products';
+  cover_photo?: Maybe<Scalars['String']>;
   date: Scalars['date'];
   description?: Maybe<Scalars['String']>;
   id: Scalars['uuid'];
@@ -267,6 +268,7 @@ export type Products_Bool_Exp = {
   _and?: Maybe<Array<Maybe<Products_Bool_Exp>>>;
   _not?: Maybe<Products_Bool_Exp>;
   _or?: Maybe<Array<Maybe<Products_Bool_Exp>>>;
+  cover_photo?: Maybe<String_Comparison_Exp>;
   date?: Maybe<Date_Comparison_Exp>;
   description?: Maybe<String_Comparison_Exp>;
   id?: Maybe<Uuid_Comparison_Exp>;
@@ -307,6 +309,7 @@ export type Products_Inc_Input = {
 
 /** input type for inserting data into table "products" */
 export type Products_Insert_Input = {
+  cover_photo?: Maybe<Scalars['String']>;
   date?: Maybe<Scalars['date']>;
   description?: Maybe<Scalars['String']>;
   id?: Maybe<Scalars['uuid']>;
@@ -319,6 +322,7 @@ export type Products_Insert_Input = {
 /** aggregate max on columns */
 export type Products_Max_Fields = {
   __typename?: 'products_max_fields';
+  cover_photo?: Maybe<Scalars['String']>;
   date?: Maybe<Scalars['date']>;
   description?: Maybe<Scalars['String']>;
   id?: Maybe<Scalars['uuid']>;
@@ -328,6 +332,7 @@ export type Products_Max_Fields = {
 
 /** order by max() on columns of table "products" */
 export type Products_Max_Order_By = {
+  cover_photo?: Maybe<Order_By>;
   date?: Maybe<Order_By>;
   description?: Maybe<Order_By>;
   id?: Maybe<Order_By>;
@@ -338,6 +343,7 @@ export type Products_Max_Order_By = {
 /** aggregate min on columns */
 export type Products_Min_Fields = {
   __typename?: 'products_min_fields';
+  cover_photo?: Maybe<Scalars['String']>;
   date?: Maybe<Scalars['date']>;
   description?: Maybe<Scalars['String']>;
   id?: Maybe<Scalars['uuid']>;
@@ -347,6 +353,7 @@ export type Products_Min_Fields = {
 
 /** order by min() on columns of table "products" */
 export type Products_Min_Order_By = {
+  cover_photo?: Maybe<Order_By>;
   date?: Maybe<Order_By>;
   description?: Maybe<Order_By>;
   id?: Maybe<Order_By>;
@@ -378,6 +385,7 @@ export type Products_On_Conflict = {
 
 /** ordering options when selecting data from "products" */
 export type Products_Order_By = {
+  cover_photo?: Maybe<Order_By>;
   date?: Maybe<Order_By>;
   description?: Maybe<Order_By>;
   id?: Maybe<Order_By>;
@@ -400,6 +408,8 @@ export type Products_Prepend_Input = {
 /** select columns of table "products" */
 export enum Products_Select_Column {
   /** column name */
+  CoverPhoto = 'cover_photo',
+  /** column name */
   Date = 'date',
   /** column name */
   Description = 'description',
@@ -417,6 +427,7 @@ export enum Products_Select_Column {
 
 /** input type for updating data in table "products" */
 export type Products_Set_Input = {
+  cover_photo?: Maybe<Scalars['String']>;
   date?: Maybe<Scalars['date']>;
   description?: Maybe<Scalars['String']>;
   id?: Maybe<Scalars['uuid']>;
@@ -472,6 +483,8 @@ export type Products_Sum_Order_By = {
 
 /** update columns of table "products" */
 export enum Products_Update_Column {
+  /** column name */
+  CoverPhoto = 'cover_photo',
   /** column name */
   Date = 'date',
   /** column name */

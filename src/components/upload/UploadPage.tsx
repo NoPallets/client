@@ -8,22 +8,22 @@ import {
 } from "../../graphql/generated/graphql";
 import Layout from "../layout/Layout";
 
+import styles from "./UploadPage.module.scss";
+
 const Upload = () => {
-  const [images, setImages] = useState([]);
   const [title, setTitle] = useState("");
   const [price, setPrice] = useState(0);
+  const [coverImage, setCoverImage] = useState<File>(null);
+  const [images, setImages] = useState([]);
 
   const [addProduct] = useMutation<
     AddProductMutation,
     AddProductMutationVariables
   >(AddProduct);
 
-  const uploadPhoto = async (e: ChangeEvent<HTMLInputElement>) => {
-    const files = Array.from(e.target.files);
-    setImages([...images, ...files]);
-
+  const uploadPhoto = async () => {
     let promises = [];
-    files.forEach((file) => {
+    images.forEach((file) => {
       const uuid = uuidv4();
       const fileName = encodeURIComponent(uuid) + "." + file.type.split("/")[1];
       const promise = fetch(`/api/upload-url?file=${fileName}`);
@@ -38,7 +38,7 @@ const Upload = () => {
     for (let i = 0; i < responses.length; i++) {
       const { url, fields } = await responses[i].json();
       urls.push(`https://d2r71m37jt0r0z.cloudfront.net/${fields.key}`);
-      const file = files[i];
+      const file = images[i];
       const formData = new FormData();
       Object.entries<string | File>({ ...fields, file }).forEach(
         ([key, value]) => {
@@ -71,37 +71,76 @@ const Upload = () => {
   return (
     <Layout title="NoPallets - upload">
       <form>
-        <label>Title</label>
+        <label className={styles.label} htmlFor="title">
+          Title
+        </label>
         <input
+          id="title"
           type="text"
+          className={styles.input}
           style={{ border: "1px solid green" }}
           onChange={(e) => setTitle(e.target.value)}
         />
-        <label htmlFor="input"> Price</label>
+        <label className={styles.label} htmlFor="price">
+          Price
+        </label>
         <input
+          id="price"
+          className={styles.input}
           style={{ border: "1px solid green" }}
           onChange={(e) => setPrice(Number(e.target.value))}
         />
-        <p>Upload a .png or .jpg image (max 1MB).</p>
-        <input
-          onChange={uploadPhoto}
-          type="file"
-          accept="image/png, image/jpeg"
-          multiple
-        />
-        <div className="flex gap-5">
-          {images.map((image) => {
-            return (
-              <div>
-                <img
-                  src={window.URL.createObjectURL(image)}
-                  width={250}
-                  height={250}
-                />
-              </div>
-            );
-          })}
+        <label className={styles.label} htmlFor="cover-image">
+          Cover Image
+        </label>
+        <div className={styles.input}>
+          <input
+            id="cover-image"
+            type="file"
+            accept="image/png, image/jpeg"
+            onChange={(e) => setCoverImage(e.target.files[0])}
+          />
+          {coverImage ? (
+            <img
+              src={window.URL.createObjectURL(coverImage)}
+              width={250}
+              height={250}
+            />
+          ) : null}
         </div>
+        <label className={styles.label} htmlFor="cover-image">
+          Gallery Images
+        </label>
+        <div className={styles.input}>
+          <input
+            onChange={(e) =>
+              setImages([...images, ...Array.from(e.target.files)])
+            }
+            type="file"
+            accept="image/png, image/jpeg"
+            multiple
+          />
+          <div className="flex gap-5">
+            {images.map((image) => {
+              return (
+                <div>
+                  <img
+                    src={window.URL.createObjectURL(image)}
+                    width={250}
+                    height={250}
+                  />
+                </div>
+              );
+            })}
+          </div>
+        </div>
+        <button
+          type="button"
+          style={{ border: "1px solid black" }}
+          onClick={() => uploadPhoto()}
+        >
+          Submit
+        </button>
       </form>
     </Layout>
   );

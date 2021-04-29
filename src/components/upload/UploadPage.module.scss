@@ -1,0 +1,31 @@
+.label {
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: rgb(122, 130, 145);
+  background-color: rgb(223, 223, 227);
+  display: inline-block;
+  border: 0px none;
+  border-radius: 3px 3px 0px 0px;
+  padding: 3px 6px 2px;
+  margin: 0px;
+  transition: all 0.2s ease 0s;
+  position: relative;
+}
+.input {
+  display: block;
+  width: 100%;
+  padding: 16px 20px;
+  margin: 0px;
+  border: 2px solid rgb(223, 223, 227);
+  border-radius: 0px 5px 5px;
+  outline: currentcolor none 0px;
+  box-shadow: none;
+  background-color: rgb(255, 255, 255);
+  color: rgb(68, 74, 87);
+  transition: border-color 0.2s ease 0s;
+  position: relative;
+  font-size: 15px;
+  line-height: 1.5;
+  margin-bottom: 2rem;
+}

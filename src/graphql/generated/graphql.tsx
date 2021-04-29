@@ -644,6 +644,7 @@ export type Uuid_Comparison_Exp = {
 export type AddProductMutationVariables = Exact<{
   title: Scalars['String'];
   price: Scalars['numeric'];
+  cover_photo?: Maybe<Scalars['String']>;
   images: Scalars['jsonb'];
 }>;
 
@@ -682,8 +683,8 @@ export type GetProductsQuery = (
 
 
 export const AddProductDocument = gql`
-    mutation AddProduct($title: String!, $price: numeric!, $images: jsonb!) {
-  insert_products_one(object: {title: $title, price: $price, images: $images}) {
+    mutation AddProduct($title: String!, $price: numeric!, $cover_photo: String, $images: jsonb!) {
+  insert_products_one(object: {title: $title, price: $price, cover_photo: $cover_photo, images: $images}) {
     id
   }
 }
@@ -705,6 +706,7 @@ export type AddProductMutationFn = Apollo.MutationFunction<AddProductMutation, A
  *   variables: {
  *      title: // value for 'title'
  *      price: // value for 'price'
+ *      cover_photo: // value for 'cover_photo'
  *      images: // value for 'images'
  *   },
  * });

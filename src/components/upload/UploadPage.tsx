@@ -7,6 +7,7 @@ import {
   AddProductMutationVariables,
 } from "../../graphql/generated/graphql";
 import Layout from "../layout/Layout";
+import ProductPreview from "../product/ProductPreview";
 
 import styles from "./UploadPage.module.scss";
 
@@ -142,6 +143,11 @@ const Upload = () => {
           Submit
         </button>
       </form>
+      Preview
+      <ProductPreview
+        title={title}
+        images={images.map((image) => window.URL.createObjectURL(image))}
+      />
     </Layout>
   );
 };

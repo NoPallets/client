@@ -1,5 +1,5 @@
 {
-  "name": "no-pallets-dev",
+  "name": "no-pallets",
   "version": "1.0.1",
   "description": "Next + Apollo + Hasura",
   "main": "index.js",

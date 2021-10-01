@@ -3,13 +3,14 @@ import { gql } from "@apollo/client";
 const GetProducts = gql`
   query GetProducts {
     products {
-      description
       id
+      title
       price
       sold
-      title
       date
+      description
       images
+      cover_photo
     }
   }
 `;

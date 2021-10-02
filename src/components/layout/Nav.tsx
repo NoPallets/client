@@ -1,4 +1,5 @@
 import Link from "next/link";
+import SignIn from "./SignIn";
 
 const Nav = () => {
   return (
@@ -14,6 +15,7 @@ const Nav = () => {
           <a className="cursor-pointer hover:opacity-50">Contact NP</a>
         </Link>
       </div>
+      <SignIn />
     </header>
   );
 };

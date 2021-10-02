@@ -13,7 +13,6 @@ interface Props {
 }
 
 const ProductPreview = ({ images, title }: Props) => {
-    console.log(images)
   return (
     <>
       <p>Post:{title}</p>
@@ -29,7 +28,7 @@ const ProductPreview = ({ images, title }: Props) => {
       >
         {images.map((img, index) => (
           <SwiperSlide key={index}>
-            <img src={img} width={900} height={1250}/>
+            <img src={img} width={900} height={1250} />
           </SwiperSlide>
         ))}
       </Swiper>

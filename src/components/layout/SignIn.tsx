@@ -1,10 +1,8 @@
 import { signIn, signOut, useSession, getSession } from "next-auth/client";
 import styles from "./header.module.css";
-import { useEffect } from "react";
 
-const SignIn = (props) => {
+const SignIn = () => {
   const [session, loading] = useSession();
-  console.log("props", session);
 
   return (
     <div className={styles.signedInStatus}>

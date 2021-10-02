@@ -75,14 +75,26 @@ export type Mutation_Root = {
   delete_products?: Maybe<Products_Mutation_Response>;
   /** delete single row from the table: "products" */
   delete_products_by_pk?: Maybe<Products>;
+  /** delete data from the table: "users" */
+  delete_users?: Maybe<Users_Mutation_Response>;
+  /** delete single row from the table: "users" */
+  delete_users_by_pk?: Maybe<Users>;
   /** insert data into the table: "products" */
   insert_products?: Maybe<Products_Mutation_Response>;
   /** insert a single row into the table: "products" */
   insert_products_one?: Maybe<Products>;
+  /** insert data into the table: "users" */
+  insert_users?: Maybe<Users_Mutation_Response>;
+  /** insert a single row into the table: "users" */
+  insert_users_one?: Maybe<Users>;
   /** update data of the table: "products" */
   update_products?: Maybe<Products_Mutation_Response>;
   /** update single row of the table: "products" */
   update_products_by_pk?: Maybe<Products>;
+  /** update data of the table: "users" */
+  update_users?: Maybe<Users_Mutation_Response>;
+  /** update single row of the table: "users" */
+  update_users_by_pk?: Maybe<Users>;
 };
 
 
@@ -99,6 +111,18 @@ export type Mutation_RootDelete_Products_By_PkArgs = {
 
 
 /** mutation root */
+export type Mutation_RootDelete_UsersArgs = {
+  where: Users_Bool_Exp;
+};
+
+
+/** mutation root */
+export type Mutation_RootDelete_Users_By_PkArgs = {
+  id: Scalars['uuid'];
+};
+
+
+/** mutation root */
 export type Mutation_RootInsert_ProductsArgs = {
   objects: Array<Products_Insert_Input>;
   on_conflict?: Maybe<Products_On_Conflict>;
@@ -109,6 +133,20 @@ export type Mutation_RootInsert_ProductsArgs = {
 export type Mutation_RootInsert_Products_OneArgs = {
   object: Products_Insert_Input;
   on_conflict?: Maybe<Products_On_Conflict>;
+};
+
+
+/** mutation root */
+export type Mutation_RootInsert_UsersArgs = {
+  objects: Array<Users_Insert_Input>;
+  on_conflict?: Maybe<Users_On_Conflict>;
+};
+
+
+/** mutation root */
+export type Mutation_RootInsert_Users_OneArgs = {
+  object: Users_Insert_Input;
+  on_conflict?: Maybe<Users_On_Conflict>;
 };
 
 
@@ -135,6 +173,20 @@ export type Mutation_RootUpdate_Products_By_PkArgs = {
   _prepend?: Maybe<Products_Prepend_Input>;
   _set?: Maybe<Products_Set_Input>;
   pk_columns: Products_Pk_Columns_Input;
+};
+
+
+/** mutation root */
+export type Mutation_RootUpdate_UsersArgs = {
+  _set?: Maybe<Users_Set_Input>;
+  where: Users_Bool_Exp;
+};
+
+
+/** mutation root */
+export type Mutation_RootUpdate_Users_By_PkArgs = {
+  _set?: Maybe<Users_Set_Input>;
+  pk_columns: Users_Pk_Columns_Input;
 };
 
 
@@ -543,6 +595,12 @@ export type Query_Root = {
   products_aggregate: Products_Aggregate;
   /** fetch data from the table: "products" using primary key columns */
   products_by_pk?: Maybe<Products>;
+  /** fetch data from the table: "users" */
+  users: Array<Users>;
+  /** fetch aggregated fields from the table: "users" */
+  users_aggregate: Users_Aggregate;
+  /** fetch data from the table: "users" using primary key columns */
+  users_by_pk?: Maybe<Users>;
 };
 
 
@@ -568,6 +626,32 @@ export type Query_RootProducts_AggregateArgs = {
 
 /** query root */
 export type Query_RootProducts_By_PkArgs = {
+  id: Scalars['uuid'];
+};
+
+
+/** query root */
+export type Query_RootUsersArgs = {
+  distinct_on?: Maybe<Array<Users_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Users_Order_By>>;
+  where?: Maybe<Users_Bool_Exp>;
+};
+
+
+/** query root */
+export type Query_RootUsers_AggregateArgs = {
+  distinct_on?: Maybe<Array<Users_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Users_Order_By>>;
+  where?: Maybe<Users_Bool_Exp>;
+};
+
+
+/** query root */
+export type Query_RootUsers_By_PkArgs = {
   id: Scalars['uuid'];
 };
 
@@ -599,6 +683,12 @@ export type Subscription_Root = {
   products_aggregate: Products_Aggregate;
   /** fetch data from the table: "products" using primary key columns */
   products_by_pk?: Maybe<Products>;
+  /** fetch data from the table: "users" */
+  users: Array<Users>;
+  /** fetch aggregated fields from the table: "users" */
+  users_aggregate: Users_Aggregate;
+  /** fetch data from the table: "users" using primary key columns */
+  users_by_pk?: Maybe<Users>;
 };
 
 
@@ -626,6 +716,191 @@ export type Subscription_RootProducts_AggregateArgs = {
 export type Subscription_RootProducts_By_PkArgs = {
   id: Scalars['uuid'];
 };
+
+
+/** subscription root */
+export type Subscription_RootUsersArgs = {
+  distinct_on?: Maybe<Array<Users_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Users_Order_By>>;
+  where?: Maybe<Users_Bool_Exp>;
+};
+
+
+/** subscription root */
+export type Subscription_RootUsers_AggregateArgs = {
+  distinct_on?: Maybe<Array<Users_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Users_Order_By>>;
+  where?: Maybe<Users_Bool_Exp>;
+};
+
+
+/** subscription root */
+export type Subscription_RootUsers_By_PkArgs = {
+  id: Scalars['uuid'];
+};
+
+/** columns and relationships of "users" */
+export type Users = {
+  __typename?: 'users';
+  email: Scalars['String'];
+  id: Scalars['uuid'];
+  password: Scalars['String'];
+};
+
+/** aggregated selection of "users" */
+export type Users_Aggregate = {
+  __typename?: 'users_aggregate';
+  aggregate?: Maybe<Users_Aggregate_Fields>;
+  nodes: Array<Users>;
+};
+
+/** aggregate fields of "users" */
+export type Users_Aggregate_Fields = {
+  __typename?: 'users_aggregate_fields';
+  count?: Maybe<Scalars['Int']>;
+  max?: Maybe<Users_Max_Fields>;
+  min?: Maybe<Users_Min_Fields>;
+};
+
+
+/** aggregate fields of "users" */
+export type Users_Aggregate_FieldsCountArgs = {
+  columns?: Maybe<Array<Users_Select_Column>>;
+  distinct?: Maybe<Scalars['Boolean']>;
+};
+
+/** order by aggregate values of table "users" */
+export type Users_Aggregate_Order_By = {
+  count?: Maybe<Order_By>;
+  max?: Maybe<Users_Max_Order_By>;
+  min?: Maybe<Users_Min_Order_By>;
+};
+
+/** input type for inserting array relation for remote table "users" */
+export type Users_Arr_Rel_Insert_Input = {
+  data: Array<Users_Insert_Input>;
+  on_conflict?: Maybe<Users_On_Conflict>;
+};
+
+/** Boolean expression to filter rows from the table "users". All fields are combined with a logical 'AND'. */
+export type Users_Bool_Exp = {
+  _and?: Maybe<Array<Maybe<Users_Bool_Exp>>>;
+  _not?: Maybe<Users_Bool_Exp>;
+  _or?: Maybe<Array<Maybe<Users_Bool_Exp>>>;
+  email?: Maybe<String_Comparison_Exp>;
+  id?: Maybe<Uuid_Comparison_Exp>;
+  password?: Maybe<String_Comparison_Exp>;
+};
+
+/** unique or primary key constraints on table "users" */
+export enum Users_Constraint {
+  /** unique or primary key constraint */
+  UsersEmailKey = 'users_email_key',
+  /** unique or primary key constraint */
+  UsersPkey = 'users_pkey'
+}
+
+/** input type for inserting data into table "users" */
+export type Users_Insert_Input = {
+  email?: Maybe<Scalars['String']>;
+  id?: Maybe<Scalars['uuid']>;
+  password?: Maybe<Scalars['String']>;
+};
+
+/** aggregate max on columns */
+export type Users_Max_Fields = {
+  __typename?: 'users_max_fields';
+  email?: Maybe<Scalars['String']>;
+  id?: Maybe<Scalars['uuid']>;
+  password?: Maybe<Scalars['String']>;
+};
+
+/** order by max() on columns of table "users" */
+export type Users_Max_Order_By = {
+  email?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+  password?: Maybe<Order_By>;
+};
+
+/** aggregate min on columns */
+export type Users_Min_Fields = {
+  __typename?: 'users_min_fields';
+  email?: Maybe<Scalars['String']>;
+  id?: Maybe<Scalars['uuid']>;
+  password?: Maybe<Scalars['String']>;
+};
+
+/** order by min() on columns of table "users" */
+export type Users_Min_Order_By = {
+  email?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+  password?: Maybe<Order_By>;
+};
+
+/** response of any mutation on the table "users" */
+export type Users_Mutation_Response = {
+  __typename?: 'users_mutation_response';
+  /** number of affected rows by the mutation */
+  affected_rows: Scalars['Int'];
+  /** data of the affected rows by the mutation */
+  returning: Array<Users>;
+};
+
+/** input type for inserting object relation for remote table "users" */
+export type Users_Obj_Rel_Insert_Input = {
+  data: Users_Insert_Input;
+  on_conflict?: Maybe<Users_On_Conflict>;
+};
+
+/** on conflict condition type for table "users" */
+export type Users_On_Conflict = {
+  constraint: Users_Constraint;
+  update_columns: Array<Users_Update_Column>;
+  where?: Maybe<Users_Bool_Exp>;
+};
+
+/** ordering options when selecting data from "users" */
+export type Users_Order_By = {
+  email?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+  password?: Maybe<Order_By>;
+};
+
+/** primary key columns input for table: "users" */
+export type Users_Pk_Columns_Input = {
+  id: Scalars['uuid'];
+};
+
+/** select columns of table "users" */
+export enum Users_Select_Column {
+  /** column name */
+  Email = 'email',
+  /** column name */
+  Id = 'id',
+  /** column name */
+  Password = 'password'
+}
+
+/** input type for updating data in table "users" */
+export type Users_Set_Input = {
+  email?: Maybe<Scalars['String']>;
+  id?: Maybe<Scalars['uuid']>;
+  password?: Maybe<Scalars['String']>;
+};
+
+/** update columns of table "users" */
+export enum Users_Update_Column {
+  /** column name */
+  Email = 'email',
+  /** column name */
+  Id = 'id',
+  /** column name */
+  Password = 'password'
+}
 
 
 /** expression to compare columns of type uuid. All fields are combined with logical 'AND'. */
@@ -657,6 +932,20 @@ export type AddProductMutation = (
   )> }
 );
 
+export type AddUserMutationVariables = Exact<{
+  email: Scalars['String'];
+  password: Scalars['String'];
+}>;
+
+
+export type AddUserMutation = (
+  { __typename?: 'mutation_root' }
+  & { insert_users_one?: Maybe<(
+    { __typename?: 'users' }
+    & Pick<Users, 'id'>
+  )> }
+);
+
 export type GetProductQueryVariables = Exact<{
   id: Scalars['uuid'];
 }>;
@@ -677,7 +966,20 @@ export type GetProductsQuery = (
   { __typename?: 'query_root' }
   & { products: Array<(
     { __typename?: 'products' }
-    & Pick<Products, 'description' | 'id' | 'price' | 'sold' | 'title' | 'date' | 'images'>
+    & Pick<Products, 'id' | 'title' | 'price' | 'sold' | 'date' | 'description' | 'images' | 'cover_photo'>
+  )> }
+);
+
+export type MyQueryQueryVariables = Exact<{
+  email: Scalars['String'];
+}>;
+
+
+export type MyQueryQuery = (
+  { __typename?: 'query_root' }
+  & { users: Array<(
+    { __typename?: 'users' }
+    & Pick<Users, 'id' | 'password'>
   )> }
 );
 
@@ -717,6 +1019,39 @@ export function useAddProductMutation(baseOptions?: Apollo.MutationHookOptions<A
 export type AddProductMutationHookResult = ReturnType<typeof useAddProductMutation>;
 export type AddProductMutationResult = Apollo.MutationResult<AddProductMutation>;
 export type AddProductMutationOptions = Apollo.BaseMutationOptions<AddProductMutation, AddProductMutationVariables>;
+export const AddUserDocument = gql`
+    mutation AddUser($email: String!, $password: String!) {
+  insert_users_one(object: {email: $email, password: $password}) {
+    id
+  }
+}
+    `;
+export type AddUserMutationFn = Apollo.MutationFunction<AddUserMutation, AddUserMutationVariables>;
+
+/**
+ * __useAddUserMutation__
+ *
+ * To run a mutation, you first call `useAddUserMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useAddUserMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [addUserMutation, { data, loading, error }] = useAddUserMutation({
+ *   variables: {
+ *      email: // value for 'email'
+ *      password: // value for 'password'
+ *   },
+ * });
+ */
+export function useAddUserMutation(baseOptions?: Apollo.MutationHookOptions<AddUserMutation, AddUserMutationVariables>) {
+        return Apollo.useMutation<AddUserMutation, AddUserMutationVariables>(AddUserDocument, baseOptions);
+      }
+export type AddUserMutationHookResult = ReturnType<typeof useAddUserMutation>;
+export type AddUserMutationResult = Apollo.MutationResult<AddUserMutation>;
+export type AddUserMutationOptions = Apollo.BaseMutationOptions<AddUserMutation, AddUserMutationVariables>;
 export const GetProductDocument = gql`
     query GetProduct($id: uuid!) {
   products_by_pk(id: $id) {
@@ -759,13 +1094,14 @@ export type GetProductQueryResult = Apollo.QueryResult<GetProductQuery, GetProdu
 export const GetProductsDocument = gql`
     query GetProducts {
   products {
-    description
     id
+    title
     price
     sold
-    title
     date
+    description
     images
+    cover_photo
   }
 }
     `;
@@ -794,3 +1130,37 @@ export function useGetProductsLazyQuery(baseOptions?: Apollo.LazyQueryHookOption
 export type GetProductsQueryHookResult = ReturnType<typeof useGetProductsQuery>;
 export type GetProductsLazyQueryHookResult = ReturnType<typeof useGetProductsLazyQuery>;
 export type GetProductsQueryResult = Apollo.QueryResult<GetProductsQuery, GetProductsQueryVariables>;
+export const MyQueryDocument = gql`
+    query MyQuery($email: String!) {
+  users(where: {email: {_eq: $email}}) {
+    id
+    password
+  }
+}
+    `;
+
+/**
+ * __useMyQueryQuery__
+ *
+ * To run a query within a React component, call `useMyQueryQuery` and pass it any options that fit your needs.
+ * When your component renders, `useMyQueryQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useMyQueryQuery({
+ *   variables: {
+ *      email: // value for 'email'
+ *   },
+ * });
+ */
+export function useMyQueryQuery(baseOptions: Apollo.QueryHookOptions<MyQueryQuery, MyQueryQueryVariables>) {
+        return Apollo.useQuery<MyQueryQuery, MyQueryQueryVariables>(MyQueryDocument, baseOptions);
+      }
+export function useMyQueryLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<MyQueryQuery, MyQueryQueryVariables>) {
+          return Apollo.useLazyQuery<MyQueryQuery, MyQueryQueryVariables>(MyQueryDocument, baseOptions);
+        }
+export type MyQueryQueryHookResult = ReturnType<typeof useMyQueryQuery>;
+export type MyQueryLazyQueryHookResult = ReturnType<typeof useMyQueryLazyQuery>;
+export type MyQueryQueryResult = Apollo.QueryResult<MyQueryQuery, MyQueryQueryVariables>;

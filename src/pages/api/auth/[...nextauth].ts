@@ -1,17 +1,38 @@
 import NextAuth from "next-auth";
 import Providers from "next-auth/providers";
 import jwt from "jsonwebtoken";
+import { compare } from "bcryptjs";
+
+import { GetUser } from "../../../graphql/queries";
+import { initializeApollo } from "../../../lib/apolloClient";
 
 // For more information on each option (and a full list of options) go to
 // https://next-auth.js.org/configuration/options
 export default NextAuth({
   // https://next-auth.js.org/configuration/providers
   providers: [
-    Providers.GitHub({
-      clientId: process.env.GITHUB_ID,
-      clientSecret: process.env.GITHUB_SECRET,
-      // https://docs.github.com/en/developers/apps/building-oauth-apps/scopes-for-oauth-apps
-      scope: "read:user",
+    Providers.Credentials({
+      name: "Credentials",
+      credentials: {
+        username: { label: "Username", type: "text", placeholder: "jsmith" },
+        password: { label: "Password", type: "password" },
+      },
+      async authorize(credentials, req) {
+        const apolloClient = initializeApollo();
+        const { data } = await apolloClient.query({
+          query: GetUser,
+          variables: {
+            email: credentials.username,
+          },
+        });
+        const password = data.users[0].password;
+        const user = { email: credentials.username, id: data.users[0].id };
+        const valid = await compare(credentials.password, password);
+        if (valid) {
+          return user;
+        }
+        return null;
+      },
     }),
   ],
   // Database optional. MySQL, Maria DB, Postgres and MongoDB are supported.
@@ -25,7 +46,7 @@ export default NextAuth({
   // The secret should be set to a reasonably long random string.
   // It is used to sign cookies and to sign and encrypt JSON Web Tokens, unless
   // a separate secret is defined explicitly for encrypting the JWT.
-  secret: process.env.SECRET,
+  secret: process.env.HASURA_GRAPHQL_JWT_SECRET,
 
   session: {
     // Use JSON Web Tokens for session instead of database sessions.
@@ -97,9 +118,13 @@ export default NextAuth({
     // async signIn(user, account, profile) { return true },
     // async redirect(url, baseUrl) { return baseUrl },
     async session(session, token) {
-      const encodedToken = jwt.sign(token, process.env.SECRET, {
-        algorithm: "HS256",
-      });
+      const encodedToken = jwt.sign(
+        token,
+        process.env.HASURA_GRAPHQL_JWT_SECRET,
+        {
+          algorithm: "HS256",
+        }
+      );
       session.id = token.id;
       session.token = encodedToken;
       return Promise.resolve(session);

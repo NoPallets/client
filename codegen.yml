@@ -1,5 +1,8 @@
 overwrite: true
-schema: "https://no-pallets.herokuapp.com/v1/graphql"
+schema:
+  - ${HASURA_GRAPHQL_ENDPOINT}:
+      headers:
+        x-hasura-admin-secret: ${HASURA_ADMIN_SECRET}
 documents: "src/graphql/**"
 generates:
   src/graphql/generated/graphql.tsx:

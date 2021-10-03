@@ -3,7 +3,7 @@ import styles from "./header.module.css";
 
 const SignIn = () => {
   const [session, loading] = useSession();
-
+  console.log("session is ", session);
   return (
     <div className={styles.signedInStatus}>
       <p
@@ -60,6 +60,7 @@ const SignIn = () => {
 
 export default SignIn;
 
+//Pass session to the Provider inside _app
 export async function getServerSideProps(ctx) {
   return { props: { session: await getSession(ctx) } };
 }

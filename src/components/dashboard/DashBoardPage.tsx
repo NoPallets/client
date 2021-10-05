@@ -5,7 +5,7 @@ const DashBoardPage = () => {
   const [session, loading] = useSession();
   return (
     <Layout title="Nopallets Dashboard">
-      <div>Hello from DashBoard for {session.user.email}</div>
+      <div>Hello from DashBoard for {session?.user?.email}</div>
     </Layout>
   );
 };

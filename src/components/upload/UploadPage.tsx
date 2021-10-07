@@ -10,12 +10,14 @@ import Layout from "../layout/Layout";
 import ProductPreview from "../product/ProductPreview";
 
 import styles from "./UploadPage.module.scss";
+import { useUserId } from "../../lib/hooks/useUserId";
 
 const Upload = () => {
   const [title, setTitle] = useState("");
   const [price, setPrice] = useState(0);
   const [coverImage, setCoverImage] = useState<File>(null);
   const [images, setImages] = useState([]);
+  const userId = useUserId();
 
   const [addProduct] = useMutation<
     AddProductMutation,
@@ -62,6 +64,7 @@ const Upload = () => {
           title: title,
           price: price,
           images: [...urls],
+          user_id: userId,
         },
       });
     } else {

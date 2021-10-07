@@ -18,14 +18,24 @@ const Nav = () => {
             <a className="cursor-pointer hover:opacity-50">Contact NP</a>
           </Link>
           {session && (
-            <Link href="/dashboard">
-              <a
-                style={{ margin: "5px" }}
-                className="cursor-pointer hover:opacity-50"
-              >
-                Dashboard
-              </a>
-            </Link>
+            <>
+              <Link href="/dashboard">
+                <a
+                  style={{ margin: "5px" }}
+                  className="cursor-pointer hover:opacity-50"
+                >
+                  Dashboard
+                </a>
+              </Link>
+              <Link href="/upload">
+                <a
+                  style={{ margin: "5px" }}
+                  className="cursor-pointer hover:opacity-50"
+                >
+                  Upload
+                </a>
+              </Link>
+            </>
           )}
         </div>
       </div>

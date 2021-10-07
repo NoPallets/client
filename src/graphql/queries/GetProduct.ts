@@ -10,6 +10,7 @@ const GetProduct = gql`
       title
       date
       images
+      user_id
     }
   }
 `;

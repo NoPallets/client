@@ -235,6 +235,7 @@ export type Products = {
   price?: Maybe<Scalars['numeric']>;
   sold: Scalars['Boolean'];
   title: Scalars['String'];
+  user_id?: Maybe<Scalars['uuid']>;
 };
 
 
@@ -328,6 +329,7 @@ export type Products_Bool_Exp = {
   price?: Maybe<Numeric_Comparison_Exp>;
   sold?: Maybe<Boolean_Comparison_Exp>;
   title?: Maybe<String_Comparison_Exp>;
+  user_id?: Maybe<Uuid_Comparison_Exp>;
 };
 
 /** unique or primary key constraints on table "products" */
@@ -369,6 +371,7 @@ export type Products_Insert_Input = {
   price?: Maybe<Scalars['numeric']>;
   sold?: Maybe<Scalars['Boolean']>;
   title?: Maybe<Scalars['String']>;
+  user_id?: Maybe<Scalars['uuid']>;
 };
 
 /** aggregate max on columns */
@@ -380,6 +383,7 @@ export type Products_Max_Fields = {
   id?: Maybe<Scalars['uuid']>;
   price?: Maybe<Scalars['numeric']>;
   title?: Maybe<Scalars['String']>;
+  user_id?: Maybe<Scalars['uuid']>;
 };
 
 /** order by max() on columns of table "products" */
@@ -390,6 +394,7 @@ export type Products_Max_Order_By = {
   id?: Maybe<Order_By>;
   price?: Maybe<Order_By>;
   title?: Maybe<Order_By>;
+  user_id?: Maybe<Order_By>;
 };
 
 /** aggregate min on columns */
@@ -401,6 +406,7 @@ export type Products_Min_Fields = {
   id?: Maybe<Scalars['uuid']>;
   price?: Maybe<Scalars['numeric']>;
   title?: Maybe<Scalars['String']>;
+  user_id?: Maybe<Scalars['uuid']>;
 };
 
 /** order by min() on columns of table "products" */
@@ -411,6 +417,7 @@ export type Products_Min_Order_By = {
   id?: Maybe<Order_By>;
   price?: Maybe<Order_By>;
   title?: Maybe<Order_By>;
+  user_id?: Maybe<Order_By>;
 };
 
 /** response of any mutation on the table "products" */
@@ -445,6 +452,7 @@ export type Products_Order_By = {
   price?: Maybe<Order_By>;
   sold?: Maybe<Order_By>;
   title?: Maybe<Order_By>;
+  user_id?: Maybe<Order_By>;
 };
 
 /** primary key columns input for table: "products" */
@@ -474,7 +482,9 @@ export enum Products_Select_Column {
   /** column name */
   Sold = 'sold',
   /** column name */
-  Title = 'title'
+  Title = 'title',
+  /** column name */
+  UserId = 'user_id'
 }
 
 /** input type for updating data in table "products" */
@@ -487,6 +497,7 @@ export type Products_Set_Input = {
   price?: Maybe<Scalars['numeric']>;
   sold?: Maybe<Scalars['Boolean']>;
   title?: Maybe<Scalars['String']>;
+  user_id?: Maybe<Scalars['uuid']>;
 };
 
 /** aggregate stddev on columns */
@@ -550,7 +561,9 @@ export enum Products_Update_Column {
   /** column name */
   Sold = 'sold',
   /** column name */
-  Title = 'title'
+  Title = 'title',
+  /** column name */
+  UserId = 'user_id'
 }
 
 /** aggregate var_pop on columns */
@@ -921,6 +934,7 @@ export type AddProductMutationVariables = Exact<{
   price: Scalars['numeric'];
   cover_photo?: Maybe<Scalars['String']>;
   images: Scalars['jsonb'];
+  user_id: Scalars['uuid'];
 }>;
 
 
@@ -955,7 +969,7 @@ export type GetProductQuery = (
   { __typename?: 'query_root' }
   & { products_by_pk?: Maybe<(
     { __typename?: 'products' }
-    & Pick<Products, 'description' | 'id' | 'price' | 'sold' | 'title' | 'date' | 'images'>
+    & Pick<Products, 'description' | 'id' | 'price' | 'sold' | 'title' | 'date' | 'images' | 'user_id'>
   )> }
 );
 
@@ -963,6 +977,19 @@ export type GetProductsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type GetProductsQuery = (
+  { __typename?: 'query_root' }
+  & { products: Array<(
+    { __typename?: 'products' }
+    & Pick<Products, 'id' | 'title' | 'price' | 'sold' | 'date' | 'description' | 'images' | 'cover_photo'>
+  )> }
+);
+
+export type GetProductsByUserQueryVariables = Exact<{
+  user_id: Scalars['uuid'];
+}>;
+
+
+export type GetProductsByUserQuery = (
   { __typename?: 'query_root' }
   & { products: Array<(
     { __typename?: 'products' }
@@ -985,8 +1012,8 @@ export type MyQueryQuery = (
 
 
 export const AddProductDocument = gql`
-    mutation AddProduct($title: String!, $price: numeric!, $cover_photo: String, $images: jsonb!) {
-  insert_products_one(object: {title: $title, price: $price, cover_photo: $cover_photo, images: $images}) {
+    mutation AddProduct($title: String!, $price: numeric!, $cover_photo: String, $images: jsonb!, $user_id: uuid!) {
+  insert_products_one(object: {title: $title, price: $price, cover_photo: $cover_photo, images: $images, user_id: $user_id}) {
     id
   }
 }
@@ -1010,6 +1037,7 @@ export type AddProductMutationFn = Apollo.MutationFunction<AddProductMutation, A
  *      price: // value for 'price'
  *      cover_photo: // value for 'cover_photo'
  *      images: // value for 'images'
+ *      user_id: // value for 'user_id'
  *   },
  * });
  */
@@ -1062,6 +1090,7 @@ export const GetProductDocument = gql`
     title
     date
     images
+    user_id
   }
 }
     `;
@@ -1130,6 +1159,46 @@ export function useGetProductsLazyQuery(baseOptions?: Apollo.LazyQueryHookOption
 export type GetProductsQueryHookResult = ReturnType<typeof useGetProductsQuery>;
 export type GetProductsLazyQueryHookResult = ReturnType<typeof useGetProductsLazyQuery>;
 export type GetProductsQueryResult = Apollo.QueryResult<GetProductsQuery, GetProductsQueryVariables>;
+export const GetProductsByUserDocument = gql`
+    query GetProductsByUser($user_id: uuid!) {
+  products(where: {user_id: {_eq: $user_id}}) {
+    id
+    title
+    price
+    sold
+    date
+    description
+    images
+    cover_photo
+  }
+}
+    `;
+
+/**
+ * __useGetProductsByUserQuery__
+ *
+ * To run a query within a React component, call `useGetProductsByUserQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetProductsByUserQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetProductsByUserQuery({
+ *   variables: {
+ *      user_id: // value for 'user_id'
+ *   },
+ * });
+ */
+export function useGetProductsByUserQuery(baseOptions: Apollo.QueryHookOptions<GetProductsByUserQuery, GetProductsByUserQueryVariables>) {
+        return Apollo.useQuery<GetProductsByUserQuery, GetProductsByUserQueryVariables>(GetProductsByUserDocument, baseOptions);
+      }
+export function useGetProductsByUserLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetProductsByUserQuery, GetProductsByUserQueryVariables>) {
+          return Apollo.useLazyQuery<GetProductsByUserQuery, GetProductsByUserQueryVariables>(GetProductsByUserDocument, baseOptions);
+        }
+export type GetProductsByUserQueryHookResult = ReturnType<typeof useGetProductsByUserQuery>;
+export type GetProductsByUserLazyQueryHookResult = ReturnType<typeof useGetProductsByUserLazyQuery>;
+export type GetProductsByUserQueryResult = Apollo.QueryResult<GetProductsByUserQuery, GetProductsByUserQueryVariables>;
 export const MyQueryDocument = gql`
     query MyQuery($email: String!) {
   users(where: {email: {_eq: $email}}) {

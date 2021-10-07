@@ -1,11 +1,15 @@
 import { useSession } from "next-auth/client";
 import Layout from "../layout/Layout";
+import { useUserId } from "../../lib/hooks/useUserId";
 
 const DashBoardPage = () => {
-  const [session, loading] = useSession();
+  const [session] = useSession();
+  const userId = useUserId();
   return (
     <Layout title="Nopallets Dashboard">
-      <div>Hello from DashBoard for {session?.user?.email}</div>
+      <>
+        <div>Hello from DashBoard for {session?.user?.email}</div>
+      </>
     </Layout>
   );
 };

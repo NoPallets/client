@@ -16,6 +16,7 @@ const ProductPage = ({ product }: Props) => {
   return (
     <Layout>
       <p>Post:{product.title}</p>
+      <p>Uploaded by:{product?.user_id}</p>
       <Swiper
         autoHeight
         style={{ width: "750px" }}
@@ -28,12 +29,7 @@ const ProductPage = ({ product }: Props) => {
       >
         {product.images.map((img, index) => (
           <SwiperSlide key={index}>
-            <Image
-              src={img}
-              width={900}
-              height={1250}
-              objectFit="cover"
-            />
+            <Image src={img} width={900} height={1250} objectFit="cover" />
           </SwiperSlide>
         ))}
       </Swiper>

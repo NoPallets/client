@@ -8,6 +8,7 @@ module.exports = withFonts({
       "",
     ],
   },
+  webpack5: false,
   webpack(config, options) {
     config.node = {
       fs: "empty",

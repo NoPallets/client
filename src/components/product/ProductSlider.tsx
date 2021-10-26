@@ -1,4 +1,3 @@
-import { Products } from "../../graphql/generated/graphql";
 import Image from "next/image";
 
 // Import Swiper React components

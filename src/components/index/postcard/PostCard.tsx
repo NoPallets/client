@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Products } from "../../../graphql/generated/graphql";
-import styles from "./PostCard.module.css";
 
 interface Props {
   product: Products;
@@ -9,9 +8,9 @@ interface Props {
 
 const PostCard = ({ product }: Props) => {
   return (
-    <div className={`${styles.postCard} relative`}>
+    <div className="group relative">
       <span
-        className={`${styles.title} absolute z-10 top-1/2 left-1/2 transform -translate-y-2/4 -translate-x-2/4 text-center pointer-events-none`}
+        className={`hidden absolute z-10 top-1/2 left-1/2 transform -translate-y-2/4 -translate-x-2/4 text-center pointer-events-none group-hover:block`}
       >
         {product.title}
       </span>

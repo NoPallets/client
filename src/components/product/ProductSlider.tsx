@@ -31,7 +31,14 @@ const ProductSlider = ({ images }: Props) => {
     >
       {images.map((img, index) => (
         <SwiperSlide key={index}>
-          <Image src={img} width={900} height={1250} objectFit="cover" />
+          <Image
+            src={img}
+            width={900}
+            height={1250}
+            objectFit="cover"
+            placeholder="blur"
+            blurDataURL={`/_next/image?url=${img}&w=16&q=1`}
+          />
         </SwiperSlide>
       ))}
     </Swiper>

@@ -17,12 +17,14 @@ const PostCard = ({ product }: Props) => {
       <div className="hover:opacity-30 cursor-pointer">
         <Link href={`/product/${product.id}`}>
           <Image
+            alt={product.title}
             src={product.images[0]}
             placeholder="blur"
             blurDataURL={`/_next/image?url=${product.images[0]}&w=16&q=1`}
             width={450}
             height={450}
             objectFit="cover"
+            quality={45}
           />
         </Link>
       </div>

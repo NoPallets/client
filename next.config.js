@@ -8,6 +8,10 @@ module.exports = withFonts({
       "",
     ],
   },
+  i18n: {
+    locales: ['en-UK'],
+    defaultLocale: 'en-UK'
+  },
   webpack5: false,
   webpack(config, options) {
     config.node = {

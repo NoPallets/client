@@ -1,6 +1,7 @@
 import { useMutation } from "@apollo/client";
 import { v4 as uuidv4 } from "uuid";
-import { ChangeEvent, useState } from "react";
+import { useState } from "react";
+import { useSession } from "next-auth/client";
 import { AddProduct } from "../../graphql/mutations";
 import {
   AddProductMutation,
@@ -18,6 +19,7 @@ const Upload = () => {
   const [coverImage, setCoverImage] = useState<File>(null);
   const [images, setImages] = useState([]);
   const userId = useUserId();
+  const [session] = useSession();
 
   const [addProduct] = useMutation<
     AddProductMutation,
@@ -71,86 +73,92 @@ const Upload = () => {
       console.error("Upload failed.");
     }
   };
-
-  return (
-    <Layout title="NoPallets - upload">
-      <form>
-        <label className={styles.label} htmlFor="title">
-          Title
-        </label>
-        <input
-          id="title"
-          type="text"
-          className={styles.input}
-          style={{ border: "1px solid green" }}
-          onChange={(e) => setTitle(e.target.value)}
-        />
-        <label className={styles.label} htmlFor="price">
-          Price
-        </label>
-        <input
-          id="price"
-          className={styles.input}
-          style={{ border: "1px solid green" }}
-          onChange={(e) => setPrice(Number(e.target.value))}
-        />
-        <label className={styles.label} htmlFor="cover-image">
-          Cover Image
-        </label>
-        <div className={styles.input}>
+  if (session) {
+    return (
+      <Layout title="NoPallets - upload">
+        <form>
+          <label className={styles.label} htmlFor="title">
+            Title
+          </label>
           <input
-            id="cover-image"
-            type="file"
-            accept="image/png, image/jpeg"
-            onChange={(e) => setCoverImage(e.target.files[0])}
+            id="title"
+            type="text"
+            className={styles.input}
+            style={{ border: "1px solid green" }}
+            onChange={(e) => setTitle(e.target.value)}
           />
-          {coverImage ? (
-            <img
-              src={window.URL.createObjectURL(coverImage)}
-              width={250}
-              height={250}
+          <label className={styles.label} htmlFor="price">
+            Price
+          </label>
+          <input
+            id="price"
+            className={styles.input}
+            style={{ border: "1px solid green" }}
+            onChange={(e) => setPrice(Number(e.target.value))}
+          />
+          <label className={styles.label} htmlFor="cover-image">
+            Cover Image
+          </label>
+          <div className={styles.input}>
+            <input
+              id="cover-image"
+              type="file"
+              accept="image/png, image/jpeg"
+              onChange={(e) => setCoverImage(e.target.files[0])}
             />
-          ) : null}
-        </div>
-        <label className={styles.label} htmlFor="cover-image">
-          Gallery Images
-        </label>
-        <div className={styles.input}>
-          <input
-            onChange={(e) =>
-              setImages([...images, ...Array.from(e.target.files)])
-            }
-            type="file"
-            accept="image/png, image/jpeg"
-            multiple
-          />
-          <div className="flex gap-5">
-            {images.map((image) => {
-              return (
-                <div>
-                  <img
-                    src={window.URL.createObjectURL(image)}
-                    width={250}
-                    height={250}
-                  />
-                </div>
-              );
-            })}
+            {coverImage ? (
+              <img
+                src={window.URL.createObjectURL(coverImage)}
+                width={250}
+                height={250}
+              />
+            ) : null}
           </div>
-        </div>
-        <button
-          type="button"
-          style={{ border: "1px solid black" }}
-          onClick={() => uploadPhoto()}
-        >
-          Submit
-        </button>
-      </form>
-      Preview
-      <ProductPreview
-        title={title}
-        images={images.map((image) => window.URL.createObjectURL(image))}
-      />
+          <label className={styles.label} htmlFor="cover-image">
+            Gallery Images
+          </label>
+          <div className={styles.input}>
+            <input
+              onChange={(e) =>
+                setImages([...images, ...Array.from(e.target.files)])
+              }
+              type="file"
+              accept="image/png, image/jpeg"
+              multiple
+            />
+            <div className="flex gap-5">
+              {images.map((image) => {
+                return (
+                  <div>
+                    <img
+                      src={window.URL.createObjectURL(image)}
+                      width={250}
+                      height={250}
+                    />
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+          <button
+            type="button"
+            style={{ border: "1px solid black" }}
+            onClick={() => uploadPhoto()}
+          >
+            Submit
+          </button>
+        </form>
+        Preview
+        <ProductPreview
+          title={title}
+          images={images.map((image) => window.URL.createObjectURL(image))}
+        />
+      </Layout>
+    );
+  }
+  return (
+    <Layout title="Access Denied">
+      <p>Access Denied</p>
     </Layout>
   );
 };

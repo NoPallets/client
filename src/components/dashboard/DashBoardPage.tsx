@@ -5,11 +5,18 @@ import { useUserId } from "../../lib/hooks/useUserId";
 const DashBoardPage = () => {
   const [session] = useSession();
   const userId = useUserId();
+  if (session) {
+    return (
+      <Layout title="Nopallets Dashboard">
+        <>
+          <div>Hello from DashBoard for {session?.user?.email}</div>
+        </>
+      </Layout>
+    );
+  }
   return (
-    <Layout title="Nopallets Dashboard">
-      <>
-        <div>Hello from DashBoard for {session?.user?.email}</div>
-      </>
+    <Layout title="Access Denied">
+      <p>Access Denied</p>
     </Layout>
   );
 };

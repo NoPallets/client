@@ -9,10 +9,10 @@ const Nav = () => {
       <div className="flex justify-between items-center">
         <div>
           <Link href="/about">
-            <a className="cursor-pointer hover:opacity-50 mr-2">About NP</a>
+            <a className="cursor-pointer hover:opacity-50 mr-2">About</a>
           </Link>
           <Link href="/contact">
-            <a className="cursor-pointer hover:opacity-50">Contact NP</a>
+            <a className="cursor-pointer hover:opacity-50">Contact</a>
           </Link>
         </div>
         <Link href="/">

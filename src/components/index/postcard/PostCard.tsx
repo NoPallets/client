@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import { getPlaiceholder } from "plaiceholder";
 import { Products } from "../../../graphql/generated/graphql";
 
 interface Props {

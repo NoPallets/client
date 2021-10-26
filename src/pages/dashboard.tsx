@@ -6,13 +6,11 @@ import {
   GetProductsByUserQuery,
   GetProductsByUserQueryVariables,
 } from "../graphql/generated/graphql";
-import { getSession } from "next-auth/client";
 
 export default DashBoardPage;
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const apolloClient = initializeApollo();
-  const session = getSession(ctx);
   const { data } = await apolloClient.query<
     GetProductsByUserQuery,
     GetProductsByUserQueryVariables

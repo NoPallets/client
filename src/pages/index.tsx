@@ -3,7 +3,6 @@ import { initializeApollo } from "../lib/apolloClient";
 import { GetProducts } from "../graphql/queries";
 import { GetProductsQuery } from "../graphql/generated/graphql";
 import IndexPage from "../components/index/IndexPage";
-import { getPlaiceholder } from "plaiceholder";
 
 export default IndexPage;
 

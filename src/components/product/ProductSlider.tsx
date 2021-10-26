@@ -8,7 +8,7 @@ import SwiperCore, { EffectFade, Navigation, Pagination } from "swiper";
 SwiperCore.use([EffectFade, Navigation, Pagination]);
 
 interface Props {
-  images: String[];
+  images: string[];
 }
 
 const ProductSlider = ({ images }: Props) => {

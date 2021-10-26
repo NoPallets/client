@@ -3,5 +3,6 @@ import { parseJwt } from "../helpers";
 
 export const useUserId = () => {
   const [session] = useSession();
-  return session?.token ? parseJwt(session.token).sub : null;
+  const userId = session?.token ? parseJwt(session.token).sub : null;
+  return [userId, session];
 };

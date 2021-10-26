@@ -1,7 +1,6 @@
 import { useMutation } from "@apollo/client";
 import { v4 as uuidv4 } from "uuid";
 import { useState } from "react";
-import { useSession } from "next-auth/client";
 import { AddProduct } from "../../graphql/mutations";
 import {
   AddProductMutation,
@@ -18,8 +17,7 @@ const Upload = () => {
   const [price, setPrice] = useState(0);
   const [coverImage, setCoverImage] = useState<File>(null);
   const [images, setImages] = useState([]);
-  const userId = useUserId();
-  const [session] = useSession();
+  const [userId,session] = useUserId();
 
   const [addProduct] = useMutation<
     AddProductMutation,

@@ -6,6 +6,7 @@ import "swiper/swiper.scss";
 import "../styles/globals.css";
 import "swiper/components/effect-fade/effect-fade.scss";
 import "swiper/components/navigation/navigation.scss";
+import "swiper/components/pagination/pagination.scss";
 
 export default function App({ Component, pageProps }) {
   const apolloClient = useApollo(pageProps.initialApolloState);

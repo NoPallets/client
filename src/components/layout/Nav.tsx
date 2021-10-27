@@ -1,4 +1,4 @@
-import { useSession, getSession } from "next-auth/client";
+import { useSession } from "next-auth/client";
 import Link from "next/link";
 import SignIn from "./SignIn";
 

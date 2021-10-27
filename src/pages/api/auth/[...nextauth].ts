@@ -17,7 +17,7 @@ export default NextAuth({
         username: { label: "Username", type: "text", placeholder: "jsmith" },
         password: { label: "Password", type: "password" },
       },
-      async authorize(credentials, req) {
+      async authorize(credentials) {
         const apolloClient = initializeApollo();
         const { data } = await apolloClient.query({
           query: GetUser,
@@ -75,7 +75,7 @@ export default NextAuth({
     // if you want to override the default behaviour.
     // encode: async ({ secret, token, maxAge }) => {},
     // decode: async ({ secret, token, maxAge }) => {},
-    encode: async ({ secret, token, maxAge }) => {
+    encode: async ({ secret, token }) => {
       const jwtClaims = {
         sub: token.id.toString(),
         name: token.name,
@@ -92,7 +92,7 @@ export default NextAuth({
       const encodedToken = jwt.sign(jwtClaims, secret, { algorithm: "HS256" });
       return encodedToken;
     },
-    decode: async ({ token, secret, maxAge }) => {
+    decode: async ({ token, secret }) => {
       const decodedToken = jwt.verify(token, secret, { algorithms: ["HS256"] });
       return decodedToken as Promise<Record<string, unknown>>;
     },
@@ -129,7 +129,7 @@ export default NextAuth({
       session.token = encodedToken;
       return Promise.resolve(session);
     },
-    async jwt(token, user, account, profile, isNewUser) {
+    async jwt(token, user) {
       const isUserSignedIn = user ? true : false;
       // make a http call to our graphql api
       // store this in postgres

@@ -15,11 +15,12 @@ const ProductSlider = ({ images }: Props) => {
     <Swiper
       autoHeight
       style={{
-        width: "750px",
+        width: "1000px",
+        cursor: "pointer",
+        margin: "0",
         // ["--swiper-navigation-color" as string]: "black",
         // ["--swiper-navigation-size" as string]: "22px",
         ["--swiper-pagination-color" as string]: "white",
-        cursor: "pointer",
       }}
       pagination={{ clickable: true }}
       spaceBetween={50}
@@ -33,11 +34,12 @@ const ProductSlider = ({ images }: Props) => {
         <SwiperSlide key={index}>
           <Image
             src={img}
-            width={900}
+            width={1000}
             height={1250}
             objectFit="cover"
             placeholder="blur"
             blurDataURL={`/_next/image?url=${img}&w=16&q=1`}
+            quality={90}
           />
         </SwiperSlide>
       ))}

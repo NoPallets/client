@@ -25,7 +25,7 @@ const Upload = () => {
   >(AddProduct);
 
   const uploadPhoto = async () => {
-    let promises = [];
+    const promises = [];
     images.forEach((file) => {
       const uuid = uuidv4();
       const fileName = encodeURIComponent(uuid) + "." + file.type.split("/")[1];
@@ -35,8 +35,8 @@ const Upload = () => {
 
     const responses = await Promise.all(promises);
 
-    let uploads = [];
-    let urls = [];
+    const uploads = [];
+    const urls = [];
 
     for (let i = 0; i < responses.length; i++) {
       const { url, fields } = await responses[i].json();
@@ -125,9 +125,9 @@ const Upload = () => {
               multiple
             />
             <div className="flex gap-5">
-              {images.map((image) => {
+              {images.map((image,index) => {
                 return (
-                  <div>
+                  <div key={index}>
                     <img
                       src={window.URL.createObjectURL(image)}
                       width={250}

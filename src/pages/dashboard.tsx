@@ -9,7 +9,7 @@ import {
 
 export default DashBoardPage;
 
-export const getServerSideProps: GetServerSideProps = async (ctx) => {
+export const getServerSideProps: GetServerSideProps = async () => {
   const apolloClient = initializeApollo();
   const { data } = await apolloClient.query<
     GetProductsByUserQuery,

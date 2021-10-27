@@ -1,6 +1,3 @@
-import { Products } from "../../graphql/generated/graphql";
-import Image from "next/image";
-
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -8,7 +5,7 @@ import SwiperCore, { EffectFade, Navigation } from "swiper";
 SwiperCore.use([EffectFade, Navigation]);
 
 interface Props {
-  images: any[];
+  images: string[];
   title: string;
 }
 

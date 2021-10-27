@@ -1,6 +1,8 @@
 import Layout from "../layout/Layout";
 import { Products } from "../../graphql/generated/graphql";
 import ProductSlider from "./ProductSlider";
+import ProductInfo from "./ProductInfo";
+
 interface Props {
   product: Products;
 }
@@ -8,9 +10,10 @@ interface Props {
 const ProductPage = ({ product }: Props) => {
   return (
     <Layout>
-      <p>Post:{product.title}</p>
-      <p>Uploaded by:{product?.user_id}</p>
-      <ProductSlider images={product.images} />
+      <div className="flex justify-center">
+        <ProductSlider images={product.images} />
+        <ProductInfo product={product} />
+      </div>
     </Layout>
   );
 };

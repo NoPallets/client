@@ -1,8 +1,7 @@
 import { signIn, signOut, useSession, getSession } from "next-auth/client";
-import styles from "./header.module.css";
 
 const SignIn = () => {
-  const [session, loading] = useSession();
+  const [session] = useSession();
   return (
     <span className="hover:opacity-50">
       {!session && (

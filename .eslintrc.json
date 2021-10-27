@@ -1,7 +1,7 @@
 {
   "env": {
     "browser": true,
-    "es2020": true,
+    "es2021": true,
     "node": true
   },
   "extends": [
@@ -14,17 +14,12 @@
     "ecmaFeatures": {
       "jsx": true
     },
-    "ecmaVersion": 11,
+    "ecmaVersion": 13,
     "sourceType": "module"
   },
   "plugins": ["react", "@typescript-eslint"],
-  "ignorePatterns": [".eslintrc.js", "next.config.js"],
   "rules": {
-    "@typescript-eslint/interface-name-prefix": "off",
-    "@typescript-eslint/explicit-function-return-type": "off",
-    "@typescript-eslint/explicit-module-boundary-types": "off",
-    "@typescript-eslint/no-explicit-any": "off",
+    "react/prop-types": "off",
     "react/react-in-jsx-scope": "off"
-  },
-  "globals": { "React": "writable" }
+  }
 }

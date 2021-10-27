@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { hash, compare } from "bcryptjs";
+import { hash } from "bcryptjs";
 import { AddUser } from "../../graphql/mutations";
 import {
   AddUserMutation,

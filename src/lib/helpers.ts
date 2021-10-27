@@ -1,14 +1,14 @@
 type ParsedToken = {
-  email: String;
-  exp: Number;
-  iat: Number;
-  sub: String;
+  email: string;
+  exp: number;
+  iat: number;
+  sub: string;
 };
 
 export const parseJwt = (token): ParsedToken => {
-  var base64Url = token.split(".")[1];
-  var base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
-  var jsonPayload = decodeURIComponent(
+  const base64Url = token.split(".")[1];
+  const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
+  const jsonPayload = decodeURIComponent(
     atob(base64)
       .split("")
       .map(function (c) {

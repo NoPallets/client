@@ -17,7 +17,7 @@ const Upload = () => {
   const [price, setPrice] = useState(0);
   const [coverImage, setCoverImage] = useState<File>(null);
   const [images, setImages] = useState([]);
-  const [userId,session] = useUserId();
+  const [userId, session] = useUserId();
 
   const [addProduct] = useMutation<
     AddProductMutation,
@@ -125,7 +125,7 @@ const Upload = () => {
               multiple
             />
             <div className="flex gap-5">
-              {images.map((image,index) => {
+              {images.map((image, index) => {
                 return (
                   <div key={index}>
                     <img

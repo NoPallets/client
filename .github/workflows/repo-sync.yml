@@ -11,5 +11,4 @@ jobs:
           destination_repo: "git@github.com:StanislavSt/nopallets-deployment.git"
           destination_branch: "master"
           source_ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
-          destination_ssh_private_key: ${{ secrets.DESTINATION_SSH_PRIVATE_KEY }} 
-
+          destination_ssh_private_key: ${{ secrets.DESTINATION_SSH_PRIVATE_KEY }}

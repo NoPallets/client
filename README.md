@@ -1,5 +1,14 @@
 ## Development
+This project was created with the intend to learn more about Hasura, NextJS and Tailwind.
+I'm rebuilding the old version of https://www.nopallets.com/, which was created with VueJS and NetlifyCMS.
 
+Some things I'm planning to add to the new version:
+- Login system
+- Custom Dashboard (Basically it's own CMS)
+- Better performance using NextJS  Static Site Generation and next/image.
+
+Current live version of this project is running on https://no-pallets-client.vercel.app/.
+Still in developemnt phase!
 ## What's in the box
 
 - Frontend
@@ -47,7 +56,8 @@ The code is generated straight from our schema in Hasura into `./src/graphql/gen
 Just run `yarn graphql:types`
 
 For example, given the following schema:
-```
+
+```graphql
 type Author {
   id: Int!
   firstName: String!
@@ -70,7 +80,7 @@ schema {
 }
 ```
 GraphQL Code Generator can generate the following TypeScript typings:
-```
+```typescript
 export type Maybe<T> = T | null;
 
 /** All built-in and custom scalars, mapped to their actual values */

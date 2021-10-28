@@ -14,6 +14,10 @@ const ProductPage = ({ product }: Props) => {
   if (isFallback) {
     return <div>Loading...</div>;
   }
+
+  if (!product) {
+    return <div>data failed to load</div>;
+  }
   return (
     <Layout>
       <div className="flex justify-center">

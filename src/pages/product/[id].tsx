@@ -27,7 +27,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     props: {
       product: data.products_by_pk,
     },
-    revalidate: 1,
+    revalidate: 10,
   };
 };
 
@@ -42,7 +42,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   return {
     paths,
-    fallback: "blocking",
+    fallback: "true",
   };
 };
 //ToDo Add getStaticPaths

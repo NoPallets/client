@@ -15,7 +15,7 @@ const PostCard = ({ product }: Props) => {
         {product.title}
       </span>
       <div className="hover:opacity-30 cursor-pointer">
-        <Link href={`/product/${product.id}`}>
+        <Link href={`/product/${product.id}`} as={`/product/${product.id}`}>
           <Image
             alt={product.title}
             src={product.images[0]}

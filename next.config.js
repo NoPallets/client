@@ -8,8 +8,4 @@ module.exports = withFonts({
       "",
     ],
   },
-  i18n: {
-    locales: ["en-UK"],
-    defaultLocale: "en-UK",
-  },
 });

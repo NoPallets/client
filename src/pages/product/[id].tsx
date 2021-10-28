@@ -11,23 +11,26 @@ import { GetStaticProps, GetStaticPaths } from "next";
 export default ProductPage;
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const apolloClient = initializeApollo();
+  try {
+    const apolloClient = initializeApollo();
 
-  const { data } = await apolloClient.query<
-    GetProductQuery,
-    GetProductQueryVariables
-  >({
-    query: GetProduct,
-    variables: {
-      id: params.id,
-    },
-  });
-
-  return {
-    props: {
-      product: data.products_by_pk,
-    },
-  };
+    const { data } = await apolloClient.query<
+      GetProductQuery,
+      GetProductQueryVariables
+    >({
+      query: GetProduct,
+      variables: {
+        id: params.id,
+      },
+    });
+    return {
+      props: {
+        product: data.products_by_pk,
+      },
+    };
+  } catch (e) {
+    console.log(e);
+  }
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {

@@ -5,7 +5,6 @@ interface Props {
 }
 
 const ProductInfo = ({ product }: Props) => {
-  console.log(product);
   return (
     <div className="ml-12">
       <h2 className="text-2xl font-bold">{product.title}</h2>

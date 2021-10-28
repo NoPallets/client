@@ -45,4 +45,3 @@ export const getStaticPaths: GetStaticPaths = async () => {
     fallback: true,
   };
 };
-//ToDo Add getStaticPaths

@@ -1,4 +1,4 @@
-import { useSession, getSession, signIn } from "next-auth/client";
+import { getSession, signIn } from "next-auth/client";
 
 export default function Page() {
   // As this page uses Server Side Rendering, the `session` will be already

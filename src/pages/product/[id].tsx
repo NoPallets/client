@@ -5,27 +5,26 @@ import {
   GetProductQuery,
   GetProductQueryVariables,
   GetProductsQuery,
+  GetProductsQueryVariables,
 } from "../../graphql/generated/graphql";
 import { GetStaticProps, GetStaticPaths } from "next";
+
+import { useQuery } from "@apollo/client";
 
 export default ProductPage;
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   try {
-    const apolloClient = initializeApollo();
+    const { data } = await useQuery<GetProductQuery, GetProductQueryVariables>(
+      GetProduct,
+      {
+        variables: { id: params.id },
+      }
+    );
 
-    const { data } = await apolloClient.query<
-      GetProductQuery,
-      GetProductQueryVariables
-    >({
-      query: GetProduct,
-      variables: {
-        id: params.id,
-      },
-    });
     return {
       props: {
-        product: data.products_by_pk,
+        product: data?.products_by_pk,
       },
     };
   } catch (e) {
@@ -36,9 +35,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 export const getStaticPaths: GetStaticPaths = async () => {
   const apolloClient = initializeApollo();
 
-  const { data } = await apolloClient.query<GetProductsQuery>({
-    query: GetProducts,
-  });
+  const { data } = await useQuery<GetProductsQuery>(GetProducts);
 
   const paths = data.products.map(({ id }) => ({
     params: { id },

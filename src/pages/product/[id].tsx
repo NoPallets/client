@@ -27,7 +27,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     props: {
       product: data.products_by_pk,
     },
-    revalidate: 1,
   };
 };
 
@@ -43,7 +42,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   }));
 
   return {
-    paths,
+    paths: [],
     fallback: true,
   };
 };

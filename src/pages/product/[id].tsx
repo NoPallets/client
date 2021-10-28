@@ -27,7 +27,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     props: {
       product: data.products_by_pk,
     },
-    revalidate: 10,
+    revalidate: 1,
   };
 };
 
@@ -38,7 +38,9 @@ export const getStaticPaths: GetStaticPaths = async () => {
     query: GetProducts,
   });
 
-  const paths = data.products.map((product) => `/product/${product.id}`);
+  const paths = data.products.map(({ id }) => ({
+    params: { id },
+  }));
 
   return {
     paths,

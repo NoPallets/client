@@ -1,15 +1,16 @@
 import ProductPage from "../../components/product/ProductPage";
 import { initializeApollo } from "../../lib/apolloClient";
-import { GetProduct } from "../../graphql/queries";
+import { GetProduct, GetProducts } from "../../graphql/queries";
 import {
   GetProductQuery,
   GetProductQueryVariables,
+  GetProductsQuery,
 } from "../../graphql/generated/graphql";
-import { GetServerSideProps } from "next";
+import { GetStaticProps, GetStaticPaths } from "next";
 
 export default ProductPage;
 
-export const getServerSideProps: GetServerSideProps = async ({ params }) => {
+export const getStaticProps: GetStaticProps = async ({ params }) => {
   const apolloClient = initializeApollo();
 
   const { data } = await apolloClient.query<
@@ -21,5 +22,22 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
     props: {
       product: data.products_by_pk,
     },
+  };
+};
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const apolloClient = initializeApollo();
+
+  const { data } = await apolloClient.query<GetProductsQuery>({
+    query: GetProducts,
+  });
+
+  const paths = data.products.map(({ id }) => ({
+    params: { id },
+  }));
+
+  return {
+    paths,
+    fallback: false,
   };
 };

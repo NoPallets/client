@@ -10,9 +10,14 @@ import "swiper/components/pagination/pagination.scss";
 
 export default function App({ Component, pageProps }) {
   const apolloClient = useApollo(pageProps.initialApolloState);
-
+  console.log("pageprops are", pageProps);
   return (
-    <Provider session={pageProps.session}>
+    <Provider
+      session={pageProps.session}
+      options={{
+        clientMaxAge: 10 * 60,
+      }}
+    >
       <ApolloProvider client={apolloClient}>
         <div style={{ margin: "20px" }}>
           <Component {...pageProps} />

@@ -3,6 +3,7 @@ import Layout from "../layout/Layout";
 
 const DashBoardPage = () => {
   const [session] = useSession();
+  console.log(session)
   if (session) {
     return (
       <Layout title="Nopallets Dashboard">

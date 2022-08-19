@@ -4967,10 +4967,10 @@ next-apollo@^5.0.4:
   resolved "https://registry.yarnpkg.com/next-apollo/-/next-apollo-5.0.7.tgz#1bcdf54120c3830365870c17a4493c354e303e2f"
   integrity sha512-W+IZDonH1nSOCQGDHp/3GU+ZhXQ7lRi/o5GEdywyVaDBCgG8FOpFp4nymLUylJn88f7mfouD/MvO3Uu5EqwKjA==
 
-next-auth@^3.29.0:
-  version "3.29.0"
-  resolved "https://registry.yarnpkg.com/next-auth/-/next-auth-3.29.0.tgz#60ddbfc7ed8ae7d43ebb02c16dc58eebf5dcb337"
-  integrity sha512-B//4QTv/1Of0D+roZ82URmI6L2JSbkKgeaKI7Mdrioq8lAzp9ff8NdmouvZL/7zwrPe2cUyM6MLYlasfuI3ZIQ==
+next-auth@^3.29.10:
+  version "3.29.10"
+  resolved "https://registry.yarnpkg.com/next-auth/-/next-auth-3.29.10.tgz#2667af749afee0f62c23f10e162a895306afd22b"
+  integrity sha512-e4nNYhISQRHNnem/WX1ybnQGDGb2rMP29maNmIXEOxSL6Uhu/pGFYu/aqApgIObDVWFt5l+33Ddh3rc71hjvEA==
   dependencies:
     "@babel/runtime" "^7.14.0"
     "@next-auth/prisma-legacy-adapter" "0.1.2"
